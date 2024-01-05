@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+
+    --primary-color: #181818;
+    --title-font-color: #fff;
+    --text-font-color: #ccc;
+    --details-color: #05dbef;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+    display: flex;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--primary-color);
+}
+
+header {
+    position: relative;
+    padding-top: 2rem;
+    display: grid;
+    grid-template-columns:  0.5fr 0.5fr 1fr;
+    align-items: center;
+    gap: 2rem;
+}
+header h1 {
+    color: var(--title-font-color);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 4rem;
+}
+
+header h3 {
+    color: var(--title-font-color);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+header img{
+    width: 200px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.input-container {
+    display: flex;
+    align-self: self-end;
+}
+.input-container input{
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+.body-container {
+    display: grid;
+    grid-template-columns: .5fr 2fr;
+    gap: 2rem;
+}
+
+nav {
+    background-color: var(--secundary-color);
+    margin: 2rem 3rem;
+}
+nav h3 {
+    color: var(--title-font-color);
+    font-size: 1rem;
+}
+nav a {
+    position: relative;
+    padding-bottom: 0.5rem;
+    color: var(--text-font-color);
+}
+nav a::after {
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--details-color);
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--details-color);
+}
+
+section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.dropdown-container {
+    display: grid;
+    width: 100%;
+    background-color: #262626;
+    padding: .5rem 1.5rem;
+  }
+
+.dropdown-container a::before {
+    background-image: url('assets/img/corner-dpwm_right-fill.svg');
+  }
+.lowlevel-dropdown {
+    margin-left: 1rem;
+}
+
+.btn-dropdown {
+    color: var(--title-font-color);
+    width: 100%;
+}
