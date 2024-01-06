@@ -12,8 +12,8 @@
       <img src="assets/img/logo2.0Inverso.png" alt="" srcset="" />
       <div class="input-container">
         <h3>Examples</h3>
-        <input type="checkbox" name="Examples" id="Examples" />
-      </div>
+        <input type="checkbox" name="Examples" id="examples" onclick="hideExamples()" />
+      </div>   
     </header>
     <div class="body-container">
       <nav>
@@ -22,31 +22,31 @@
         <div class="lowlevel-dropdown">
           <div class="btn-dropdown"><i class="ri-arrow-down-s-fill"></i><i class="ri-folder-5-line"></i> Authorization</div>
           <div class="dropdown-container">
-            <a href="#">Token</a>
+            <a class="get" href="#">Token</a>
           </div>
           <div class="btn-dropdown"><i class="ri-arrow-down-s-fill"></i><i class="ri-folder-5-line"></i> Login</div>
           <div class="dropdown-container">
-            <a href="#">login Info</a>
+            <a class="get" href="#">login Info</a>
           </div>
           <div class="btn-dropdown"><i class="ri-arrow-down-s-fill"></i><i class="ri-folder-5-line"></i> Users</div>
           <div class="dropdown-container">
             <div class="btn-dropdown"><i class="ri-arrow-down-s-fill"></i><i class="ri-folder-5-line"></i> CRUD User</div>
             <div class="lowlevel-dropdown dropdown-container">
-                <i class="ri-corner-down-right-line"><a href="#"> Create User</a></i>
-                <i class="ri-corner-down-right-line"><a href="#"> Delete Users</a> </i>
+                <a class="post" href="#"> Create User</a>
+                <a class="delete" href="#"> Delete Users</a>
             </div>
-            <a href="#">Get Users</a>
+            <a class="get" href="#">Get Users</a>
           </div>
           <div class="btn-dropdown"><i class="ri-arrow-down-s-fill"></i><i class="ri-folder-5-line"></i> Store Items</div>
           <div class="dropdown-container">
-            <a href="#">Items List</a>
-            <a href="#">Filtered List</a>
-            <a href="#">Create Item</a>
+            <a class="get" href="#">Items List</a>
+            <a class="post" href="#">Filtered List</a>
+            <a class="post" href="#">Create Item</a>
           </div>
           <div class="btn-dropdown"><i class="ri-arrow-down-s-fill"></i><i class="ri-folder-5-line"></i> Payment</div>
           <div class="dropdown-container">
-            <a href="#">Generate Url Payment</a>
-            <a href="#">Validate Payment</a>
+            <a class="post" href="#">Generate Url Payment</a>
+            <a class="post" href="#">Validate Payment</a>
         </div>
       </nav>
       <main>
@@ -55,11 +55,11 @@
             <h1>Andres Vargas API-REST</h1>
             <p>Esta api ofrece endpoints con los cuales se puede accesar a los datos del server, brindandole al usuario diferentes operaciones y funcionalidades.</p>
           </div>
-          <div class="Example">
+          <div id="example" class="example">
             <h1>Hola Seccion Example</h1>
           </div>
+          <span class="separador"></span>
         </section>
-        <span class="separador"></span>
         <section class="endpoint">
           <div class="description">
             <h1 class="title">V1</h1>
@@ -73,46 +73,52 @@
               >
             </div>
           </div>
-          <div class="Example">
+          <div id="example" class="example">
             <h1>Hola Seccion Example</h1>
           </div>
+          <span class="separador"></span>
         </section>
-        <span class="separador"></span>
         <section class="endpoint">
           <div class="description">
             <h1><span>POST</span> Token</h1>
             <input type="text" name="url" id="url" class="input-url" value="https://dominio.com/v1/authorization/token" />
             <h3>Description</h3>
             <p>Endpoint Utilizado para obtener el Token de Autorizacion</p>
-            <span class="separador"></span>
             <h3>Schema</h3>
-            <div>
-              <span>Json</span>
-              <div class="codeDiv">
-                {
-                <span class="keyJson">"$schema": </span> <span class="valueJson">"https://json-schema.org/draft/2020-12/schema",</span> <span class="keyJson">"$id": </span> <span class="valueJson">"https://api.inter.mx/v1/authorization.schema.json",</span> <span class="keyJson">"title": </span> <span class="valueJson">Authorization",</span> <span class="keyJson">"description": </span> <span class="valueJson">"Authorization parameters",</span> <span class="keyJson">"type": </span> <span class="valueJson">"object",</span>
-                <span class="keyJson">"properties": </span>
-                {
-                <span class="keyJson">"client_id": </span>{ <span class="keyJson">"description": </span><span class="valueJson">"Unique ID"</span>, <span class="keyJson">"type": </span><span class="valueJson">"string"</span>
-                }
-                <span class="keyJson">"client_secret": </span>{ <span class="keyJson">"description": </span><span class="valueJson">"Secret code"</span> <span class="keyJson">"type": </span><span class="valueJson">"string" </span>
-                } },
-                <span class="keyJson">"required": </span> <span class="valueJson">[ "client_id", "client_secret" ]</span>
-                }
-              </div>
+            <div class="codeDiv">
+                <h4>Json</h4>
+                <pre>
+                  { 
+                    <span class="keyJson">"$schema":</span> <span class="valueJson">"https://json-schema.org/draft/2020-12/schema",</span>
+                    <span class="keyJson">"title":</span> <span class="valueJson">Authorization",</span> 
+                    <span class="keyJson">"description":</span> <span class="valueJson">"Authorization parameters",</span>
+                    <span class="keyJson">"type":</span> <span class="valueJson">"object",</span>
+                    <span class="keyJson">"properties":</span>{
+                      <span class="keyJson jsonsublevel">"client_id":</span>{ 
+                          <span class="keyJson">"description":</span><span class="valueJson">"Email from user"</span>, 
+                          <span class="keyJson">"type":</span><span class="valueJson">"string"</span>
+                        }
+                      <span class="keyJson">"client_secret":</span>{ 
+                          <span class="keyJson">"description":</span><span class="valueJson">"Password from user"</span> 
+                          <span class="keyJson">"type":</span><span class="valueJson">"string" </span>
+                        } 
+                    },
+                    <span class="keyJson">"required":</span> <span class="valueJson">[ "email", "password" ]</span>
+                  }
+                </pre>
             </div>
-            <span class="separador"></span>
             <h3>Token</h3>
             <p>El Token Se crea de acuerdo a las credenciales que le pasamos en el body</p>
-            <span class="separador"></span>
+            <div class="container"><div class="wave"></div></div>
             <div class="codeDiv">
               <span>Json</span>
               <div class="codeContainer"></div>
             </div>
           </div>
-          <div class="Example">
+          <div id="example" class="example">
             <h1>Hola Seccion Example</h1>
           </div>
+          <span class="separador"></span>
         </section>
       </main>
     </div>
