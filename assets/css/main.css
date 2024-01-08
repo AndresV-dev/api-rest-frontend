@@ -148,37 +148,51 @@ section p, span {
 }
 .double-column {
     display: flex;
-    gap: 30%;
+    justify-content: space-between;
     align-items: center;
     padding-left: 4rem;
 }
 
 .double-column textarea {
-    width: 100%;
+    width: 50%;
+    margin-right: 5rem;
 }
 
 .example {
     background-color: var(--secundary-color);
     padding: 2rem;
+    overflow: hidden;
 }
-
+.empty {
+    background: var(--primary-color);
+}
 .codeDiv {
     padding: 2rem 4rem;
     border: groove 1px #ccc;
     color: #ccc;
-    overflow: hidden;
+    
 }
 
 .codeDiv pre {
     border: none !important;
     position: relative;
     font-size: 1rem;
+    overflow: hidden;
 }
 
-.pln {
-    color: #df3e3e !important;
+.pre-wraper {
+    overflow-x: auto;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
 }
-.keyJson {
+
+.btn-close {
+    display: none;
+}
+.keyJson span{
     color: #df3e3e;
 }
 .valueJson {
@@ -189,7 +203,7 @@ section p, span {
     display: none;
     width: fit-content;
     border-end-end-radius: 1rem;
-    padding: .5rem 1.5rem;
+    padding: 0 1.5rem;
   }
 
 .get::before {
@@ -231,13 +245,57 @@ h1.post::before, h1.get::before, h1.delete::before, h1.put::before {
 
 .btn-dropdown {
     color: var(--title-font-color);
-    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
     width: 100%;
+    cursor: pointer;
 }
 
+.btn-view-more {
+    color: var(--details-color);
+    background-color: var(--primary-color);
+    width: 100%;
+    height: 2rem;
+    cursor: pointer;
+    border-radius: .5rem;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.btn-view-more:hover {
+    opacity: 0.85;
+}
 .show {
     display: grid;
 }
+/* Modal*/
+/* The Modal (background) */
+.modal {
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding: 4rem; /* Location of the box */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(0,0,0); /* Fallback color */
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    transition: all 0.5s ease;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
 
 @media (width < 1600px){
     nav {
@@ -245,6 +303,7 @@ h1.post::before, h1.get::before, h1.delete::before, h1.put::before {
     }
     main {
         margin: 3rem;
+        overflow: hidden;
     }
     h1 {
         font-size: 1.50rem;
@@ -257,6 +316,4 @@ h1.post::before, h1.get::before, h1.delete::before, h1.put::before {
         display: flex;
         flex-direction: column;
     }
-
-
 }
