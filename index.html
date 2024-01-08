@@ -21,19 +21,16 @@
           <div class="btn-dropdown" onclick="showDropdown('authorization')"><i class="ri-arrow-down-s-fill"></i><i class="ri-folder-5-line"></i> Authorization</div>
           <div id="authorization" class="dropdown-container">
             <a class="get" href="#">Token</a>
-          </div>
-          <div class="btn-dropdown" onclick="showDropdown('login')"><i class="ri-arrow-down-s-fill"></i><i class="ri-folder-5-line"></i> Login</div>
-          <div id="login" class="dropdown-container">
-            <a class="get" href="#">login Info</a>
+            <a class="post" href="#"> Create User</a>
           </div>
           <div class="btn-dropdown" onclick="showDropdown('users')"><i class="ri-arrow-down-s-fill"></i><i class="ri-folder-5-line"></i> Users</div>
           <div id="users" class="dropdown-container">
             <div class="btn-dropdown"onclick="showDropdown('crud')"><i class="ri-arrow-down-s-fill"></i><i class="ri-folder-5-line"></i> CRUD User</div>
             <div id="crud" class="lowlevel-dropdown dropdown-container">
-                <a class="post" href="#"> Create User</a>
-                <a class="delete" href="#"> Delete Users</a>
+              <a class="post" href="#"> Update User</a>
+              <a class="delete" href="#"> Delete Users</a>
             </div>
-            <a class="get" href="#">Get Users</a>
+            <a class="get" href="#">Get List Users</a>
           </div>
           <div class="btn-dropdown" onclick="showDropdown('items')"><i class="ri-arrow-down-s-fill"></i><i class="ri-folder-5-line"></i> Store Items</div>
           <div id="items" class="dropdown-container">
@@ -48,14 +45,12 @@
         </div>
       </nav>
       <main>
-        <section class="enpoint">
+        <section class="endpoint">
           <div class="description">
             <h1>Andres Vargas API-REST</h1>
             <p>Esta api ofrece endpoints con los cuales se puede accesar a los datos del server, brindandole al usuario diferentes operaciones y funcionalidades.</p>
           </div>
-          <div id="example" class="example">
-            <h1>Hola Seccion Example</h1>
-          </div>
+          <div id="example" class="example empty"></div>
           <span class="separador"></span>
         </section>
         <section class="endpoint">
@@ -70,37 +65,36 @@
                     </textarea>
             </div>
           </div>
-          <div id="example" class="example">
-            <h1>Hola Seccion Example</h1>
-          </div>
+          <div class="example empty"></div>
           <span class="separador"></span>
         </section>
+
         <section class="endpoint">
           <div class="description">
             <h1 class="post">Token</h1>
-            <div class="endpoint-box"> https://dominio.com/v1/authorization/token</div>
+            <div class="endpoint-box"> https://dominio.com/v1/auth/token</div>
             <h3>Description</h3>
             <p>Endpoint Utilizado para obtener el Token de Autorizacion</p>
             <h3>Schema</h3>
             <div class="codeDiv">
-                <h4>Json</h4>
+                <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('beautified')"> <i class="ri-file-copy-2-fill"></i></span></div>
                 <pre id="beautified" class="prettyprint">
 {
-  $schema:"https://json-schema.org/draft/2020-12/schema",
-  title:"Authorization",
-  description:"Authorization parameters",
-  type:"object",
-  properties:{
-      client_id:{
-        description:"Email from user",
-        type:"string"
+  <span class="keyJson">"$"schema</span> :"https://json-schema.org/draft/2020-12/schema",
+  <span class="keyJson">"title"</span> :"Authorization",
+  <span class="keyJson">"description"</span> :"Authorization parameters",
+  <span class="keyJson">"type"</span> :"object",
+  <span class="keyJson">"properties"</span> :{
+      <span class="keyJson">"email"</span> :{
+        <span class="keyJson">"description"</span> :"Email from user",
+        <span class="keyJson">"type"</span> :"string"
       },
-      client_secret:{
-        description:"Password from user",
-        type:"string"
+      <span class="keyJson">"password"</span>:{
+        <span class="keyJson">"description"</span>:"Password from user",
+        <span class="keyJson">"type"</span>:"string"
       }
   },
-  required:["email","password"]
+  <span class="keyJson">"required"</span>:["email","password"]
 }
                 </pre>
             </div>
@@ -108,13 +102,70 @@
             <p>El Token Se crea de acuerdo a las credenciales que le pasamos en el body</p>
             <div class="codeDiv">
               <span>Json</span>
-              <div class="codeContainer"></div>
+              <div class="codeContainer">
+                <pre class="prettyprint">
+{       
+  <span class="keyJson">"email"</span>: "test2@gmail.com", 
+  <span class="keyJson">"password"</span>: "thisIsPassword"
+}
+                </pre>
+              </div>
             </div>
           </div>
-          <div id="example" class="example">
-            <h1>Hola Seccion Example</h1>
+          <div class="example">
+            <p>Example Request</p>
+            <div id="modalReqToken" class="codeDiv">
+              http://tudominio.com/v1/authorization/token 
+                <pre class="prettyprint">
+
+{       
+  <span class="keyJson">"email"</span>: "test2@gmail.com", 
+  <span class="keyJson">"password"</span>: "thisIsPassword"
+}
+                </pre>
+            </div>
+            <div  id="modalResToken">
+              <p>Example Response</p>
+            <div class="codeDiv">
+              <span id="btn-close" class="btn-close close" onclick="openModal('modalResToken')">&times;</span>
+                <pre id="pre-resp" class="prettyprint">
+{
+  <span class="keyJson">"username"</span> : "avargas@gmail.com",
+  <span class="keyJson">"email"</span> : "avargas@gmail.com",
+  <span class="keyJson">"role"</span> : "USER",
+  <span class="keyJson">"token"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy",
+  <span class="keyJson">"refreshToken"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzNjkzOTk2fQ.wT-WrhotmOtVVOyXckXAvUI92InEVCXwVWZt7XMA4KlNHJ2rrugMg1Fm4GSQPaxS"
+}
+                </pre>
+                <button id="btn-modal" class="btn-view-more" onclick="openModal('modalResToken')">view more</button>
+            </div>
+            </div>
           </div>
           <span class="separador"></span>
+        </section>
+        <section>
+          <div class="description">
+              <h1 class="post">Create User</h1>
+              <div class="endpoint-box"> https://dominio.com/v1/auth/register</div>
+            <h3>Description</h3>
+            <p>Endpoint Utilizado para crear un usuario en base de datos, este regresara informacion del usuario asi como el token y refresh token de la session</p>
+            <h3>body</h3>
+            <div class="codeDiv">
+              <p>Json</p>
+              <pre class="prettyprint pre-wraper">
+{
+  <span class="keyJson">"name"</span> :"Edgar Andres",
+  <span class="keyJson">"apellido_paterno"</span> :"Vargas",
+  <span class="keyJson">"apellido_materno"</span> :"Mora",
+  <span class="keyJson">"email"</span> :"avargas@gmail.com",
+  <span class="keyJson">"password"</span> :"1234"
+}
+              </pre>
+            </div>
+          </div>
+          <div class="example">
+
+          </div>
         </section>
       </main>
     </div>
