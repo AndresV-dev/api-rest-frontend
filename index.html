@@ -6,6 +6,7 @@
     <title>Api doc / Java Spring Boot | Andres Vargas</title>
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.0.1/remixicon.min.css">
+    <script src="assets/js/main.js"></script>
   </head>
   <body>
     <header>
@@ -18,33 +19,33 @@
     <div class="body-container">
       <nav>
         <h3>Lista de Endpoints</h3>
-        <div class="btn-dropdown"><i class="ri-arrow-down-s-fill"></i><i class="ri-folder-5-line"></i> V1</div>
-        <div class="lowlevel-dropdown">
-          <div class="btn-dropdown"><i class="ri-arrow-down-s-fill"></i><i class="ri-folder-5-line"></i> Authorization</div>
-          <div class="dropdown-container">
+        <div class="btn-dropdown" onclick="showDropdown('v1')"><i class="ri-arrow-down-s-fill"></i><i class="ri-folder-5-line"></i> V1</div>
+        <div id="v1" class="lowlevel-dropdown">
+          <div class="btn-dropdown" onclick="showDropdown('authorization')"><i class="ri-arrow-down-s-fill"></i><i class="ri-folder-5-line"></i> Authorization</div>
+          <div id="authorization" class="dropdown-container">
             <a class="get" href="#">Token</a>
           </div>
-          <div class="btn-dropdown"><i class="ri-arrow-down-s-fill"></i><i class="ri-folder-5-line"></i> Login</div>
-          <div class="dropdown-container">
+          <div class="btn-dropdown" onclick="showDropdown('login')"><i class="ri-arrow-down-s-fill"></i><i class="ri-folder-5-line"></i> Login</div>
+          <div id="login" class="dropdown-container">
             <a class="get" href="#">login Info</a>
           </div>
-          <div class="btn-dropdown"><i class="ri-arrow-down-s-fill"></i><i class="ri-folder-5-line"></i> Users</div>
-          <div class="dropdown-container">
-            <div class="btn-dropdown"><i class="ri-arrow-down-s-fill"></i><i class="ri-folder-5-line"></i> CRUD User</div>
-            <div class="lowlevel-dropdown dropdown-container">
+          <div class="btn-dropdown" onclick="showDropdown('users')"><i class="ri-arrow-down-s-fill"></i><i class="ri-folder-5-line"></i> Users</div>
+          <div id="users" class="dropdown-container">
+            <div class="btn-dropdown"onclick="showDropdown('crud')"><i class="ri-arrow-down-s-fill"></i><i class="ri-folder-5-line"></i> CRUD User</div>
+            <div id="crud" class="lowlevel-dropdown dropdown-container">
                 <a class="post" href="#"> Create User</a>
                 <a class="delete" href="#"> Delete Users</a>
             </div>
             <a class="get" href="#">Get Users</a>
           </div>
-          <div class="btn-dropdown"><i class="ri-arrow-down-s-fill"></i><i class="ri-folder-5-line"></i> Store Items</div>
-          <div class="dropdown-container">
+          <div class="btn-dropdown" onclick="showDropdown('items')"><i class="ri-arrow-down-s-fill"></i><i class="ri-folder-5-line"></i> Store Items</div>
+          <div id="items" class="dropdown-container">
             <a class="get" href="#">Items List</a>
             <a class="post" href="#">Filtered List</a>
             <a class="post" href="#">Create Item</a>
           </div>
-          <div class="btn-dropdown"><i class="ri-arrow-down-s-fill"></i><i class="ri-folder-5-line"></i> Payment</div>
-          <div class="dropdown-container">
+          <div class="btn-dropdown" onclick="showDropdown('payment')"><i class="ri-arrow-down-s-fill"></i><i class="ri-folder-5-line"></i> Payment</div>
+          <div id="payment" class="dropdown-container">
             <a class="post" href="#">Generate Url Payment</a>
             <a class="post" href="#">Validate Payment</a>
         </div>
@@ -87,7 +88,7 @@
             <h3>Schema</h3>
             <div class="codeDiv">
                 <h4>Json</h4>
-                <pre>
+                <p>
                   { 
                     <span class="keyJson">"$schema":</span> <span class="valueJson">"https://json-schema.org/draft/2020-12/schema",</span>
                     <span class="keyJson">"title":</span> <span class="valueJson">Authorization",</span> 
@@ -105,7 +106,7 @@
                     },
                     <span class="keyJson">"required":</span> <span class="valueJson">[ "email", "password" ]</span>
                   }
-                </pre>
+                </p>
             </div>
             <h3>Token</h3>
             <p>El Token Se crea de acuerdo a las credenciales que le pasamos en el body</p>
@@ -123,5 +124,4 @@
       </main>
     </div>
   </body>
-  <script src="assets/js/main.js"></script>
 </html>
