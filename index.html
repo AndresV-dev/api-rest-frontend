@@ -6,21 +6,18 @@
     <title>Api doc / Java Spring Boot | Andres Vargas</title>
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.0.1/remixicon.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
     <script src="assets/js/main.js"></script>
   </head>
   <body>
     <header>
-      <img src="assets/img/logo2.0Inverso.png" alt="" srcset="" />
-      <div class="input-container">
-        <h3>Examples</h3>
-        <input type="checkbox" name="Examples" id="examples" onclick="hideExamples()" />
-      </div>   
+      <img src="assets/img/logo2.0Inverso.png" alt="" srcset="" /> 
     </header>
     <div class="body-container">
       <nav>
         <h3>Lista de Endpoints</h3>
         <div class="btn-dropdown" onclick="showDropdown('v1')"><i class="ri-arrow-down-s-fill"></i><i class="ri-folder-5-line"></i> V1</div>
-        <div id="v1" class="lowlevel-dropdown">
+        <div id="v1" class="lowlevel-dropdown show">
           <div class="btn-dropdown" onclick="showDropdown('authorization')"><i class="ri-arrow-down-s-fill"></i><i class="ri-folder-5-line"></i> Authorization</div>
           <div id="authorization" class="dropdown-container">
             <a class="get" href="#">Token</a>
@@ -46,7 +43,7 @@
           </div>
           <div class="btn-dropdown" onclick="showDropdown('payment')"><i class="ri-arrow-down-s-fill"></i><i class="ri-folder-5-line"></i> Payment</div>
           <div id="payment" class="dropdown-container">
-            <a class="post" href="#">Generate Url Payment</a>
+            <a class="post" href="#">Url Payment</a>
             <a class="post" href="#">Validate Payment</a>
         </div>
       </nav>
@@ -66,12 +63,11 @@
             <h1 class="title">V1</h1>
             <p>Esta es la primer versión de la Api-Rest, donde se encontraran los endpoints del Backend</p>
             <h1><b>Test Authorization Token |</b> Beaber Token</h1>
-            <div>
+            <div class="double-column">
               <h1>Token</h1>
-              <textarea name="Token" id="Token" cols="30" rows="10">
+              <textarea name="Token" id="Token" cols="30" rows="10" readonly>
                         eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy
-                    </textarea
-              >
+                    </textarea>
             </div>
           </div>
           <div id="example" class="example">
@@ -81,36 +77,35 @@
         </section>
         <section class="endpoint">
           <div class="description">
-            <h1><span>POST</span> Token</h1>
-            <input type="text" name="url" id="url" class="input-url" value="https://dominio.com/v1/authorization/token" />
+            <h1 class="post">Token</h1>
+            <div class="endpoint-box"> https://dominio.com/v1/authorization/token</div>
             <h3>Description</h3>
             <p>Endpoint Utilizado para obtener el Token de Autorizacion</p>
             <h3>Schema</h3>
             <div class="codeDiv">
                 <h4>Json</h4>
-                <p>
-                  { 
-                    <span class="keyJson">"$schema":</span> <span class="valueJson">"https://json-schema.org/draft/2020-12/schema",</span>
-                    <span class="keyJson">"title":</span> <span class="valueJson">Authorization",</span> 
-                    <span class="keyJson">"description":</span> <span class="valueJson">"Authorization parameters",</span>
-                    <span class="keyJson">"type":</span> <span class="valueJson">"object",</span>
-                    <span class="keyJson">"properties":</span>{
-                      <span class="keyJson jsonsublevel">"client_id":</span>{ 
-                          <span class="keyJson">"description":</span><span class="valueJson">"Email from user"</span>, 
-                          <span class="keyJson">"type":</span><span class="valueJson">"string"</span>
-                        }
-                      <span class="keyJson">"client_secret":</span>{ 
-                          <span class="keyJson">"description":</span><span class="valueJson">"Password from user"</span> 
-                          <span class="keyJson">"type":</span><span class="valueJson">"string" </span>
-                        } 
-                    },
-                    <span class="keyJson">"required":</span> <span class="valueJson">[ "email", "password" ]</span>
-                  }
-                </p>
+                <pre id="beautified" class="prettyprint">
+{
+  $schema:"https://json-schema.org/draft/2020-12/schema",
+  title:"Authorization",
+  description:"Authorization parameters",
+  type:"object",
+  properties:{
+      client_id:{
+        description:"Email from user",
+        type:"string"
+      },
+      client_secret:{
+        description:"Password from user",
+        type:"string"
+      }
+  },
+  required:["email","password"]
+}
+                </pre>
             </div>
             <h3>Token</h3>
             <p>El Token Se crea de acuerdo a las credenciales que le pasamos en el body</p>
-            <div class="container"><div class="wave"></div></div>
             <div class="codeDiv">
               <span>Json</span>
               <div class="codeContainer"></div>

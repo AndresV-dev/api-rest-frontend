@@ -7,7 +7,8 @@
     border: none;
     box-sizing: border-box;
 
-    --primary-color: #212121;
+    --primary-color: #262626;
+    --secundary-color: #212121;
     --title-font-color: #fff;
     --text-font-color: #ccc;
     --details-color: #05dbef;
@@ -37,8 +38,9 @@ header {
     align-items: center;
     gap: 2rem;
     border-bottom: solid 1px #ccc;
-    background-color: var(--primary-color);
+    background-color: var(--secundary-color);
     transition: all 0.3s ease;
+    z-index: 1;
 }
 h1 {
     color: var(--title-font-color);
@@ -75,6 +77,7 @@ header img{
     display: flex;
     top: 0;
     grid-template-columns: .5fr 2fr;
+    background-color: var(--primary-color);
     gap: 2rem;
     align-items: baseline;
 }
@@ -86,7 +89,6 @@ nav {
     top: 9.828rem;
     position: -webkit-sticky;
     position: sticky;
-    background-color: var(--secundary-color);
     margin: 4rem 0 0 3rem;
     align-items: baseline;
     transition: left 0.1s linear 0s;
@@ -122,12 +124,20 @@ section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
-    margin: 2rem 1rem;
+    margin: 2rem 1rem;    
+    white-space: pre-line;
 }
 .separador {
     position: static;
     padding: 1px;
     background-color: var(--text-font-color);
+}
+
+.endpoint-box{
+    width: 100%;
+    padding: 2rem 1rem;
+    color: var(--title-font-color);
+    background-color: var(--secundary-color);
 }
 
 section h3,h1 {
@@ -136,20 +146,37 @@ section h3,h1 {
 section p, span {
     color: var(--text-font-color);
 }
+.double-column {
+    display: flex;
+    gap: 30%;
+    align-items: center;
+    padding-left: 4rem;
+}
+
+.double-column textarea {
+    width: 100%;
+}
 
 .example {
-    background-color: #262626;
+    background-color: var(--secundary-color);
+    padding: 2rem;
 }
 
 .codeDiv {
+    padding: 2rem 4rem;
     border: groove 1px #ccc;
     color: #ccc;
+    overflow: hidden;
 }
-.codeDiv pre{
+
+.codeDiv pre {
+    border: none !important;
     position: relative;
-    right: 6rem;
-    padding: 1rem;
-    color: #ccc;
+    font-size: 1rem;
+}
+
+.pln {
+    color: #df3e3e !important;
 }
 .keyJson {
     color: #df3e3e;
@@ -166,33 +193,36 @@ section p, span {
   }
 
 .get::before {
-    content: "GET";
+    content: "GET ";
     font-size: var(--method-font-size);
     vertical-align: middle;
     padding-right: .2rem;
     color: #56c54f;
 }
-
 .put::before {
-    content: "PUT";
+    content: "PUT ";
     font-size: var(--method-font-size);
     vertical-align: middle;
     padding-right: .2rem;
     color: #1e0db9;
 }
 .post::before {
-    content: "POST";
+    content: "POST ";
     font-size: var(--method-font-size);
     vertical-align: middle;
     padding-right: .2rem;
     color: #e6a014;
 }
 .delete::before {
-    content: "DEL";
+    content: "DEL ";
     font-size: var(--method-font-size);
     vertical-align: middle;
     padding-right: .2rem;
     color: #df3e3e;
+}
+
+h1.post::before, h1.get::before, h1.delete::before, h1.put::before {
+    font-size: 1.5rem;
 }
 .lowlevel-dropdown {
     display: none;
@@ -201,6 +231,7 @@ section p, span {
 
 .btn-dropdown {
     color: var(--title-font-color);
+    margin-top: 0.5rem;
     width: 100%;
 }
 
@@ -208,3 +239,24 @@ section p, span {
     display: grid;
 }
 
+@media (width < 1600px){
+    nav {
+        display: none;
+    }
+    main {
+        margin: 3rem;
+    }
+    h1 {
+        font-size: 1.50rem;
+        font-weight: 500;
+    }
+}
+
+@media (width < 1300px){
+    section {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+}
