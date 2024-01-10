@@ -7,19 +7,16 @@ function showDropdown(id) {
     document.getElementById("btn-close").classList.toggle("btn-close");
     document.getElementById("btn-modal").classList.toggle("btn-close");
     document.getElementById("pre-resp").classList.toggle("pre-wraper");
+    document.getElementById("modalCodeDiv").classList.toggle("max-height");
+    document.body.classList.toggle("no-scroll");
   }
 
-  function CopyToClipboard(containerid) {
-    if (document.selection) {
-      var range = document.body.createTextRange();
-      range.moveToElementText(document.getElementById(containerid));
-      range.select().createTextRange();
+    function CopyToClipboard(preId) {
+      const copyText = document.getElementById(preId).textContent;
+      const textArea = document.createElement('textarea');
+      textArea.textContent = copyText;
+      document.body.append(textArea);
+      textArea.select();
       document.execCommand("copy");
-    } else if (window.getSelection) {
-      var range = document.createRange();
-      range.selectNode(document.getElementById(containerid));
-      window.getSelection().addRange(range);
-      document.execCommand("copy");
-      alert("Text has been copied, now paste in the text-area")
+      textArea.remove();
     }
-  }

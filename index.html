@@ -77,10 +77,10 @@
             <p>Endpoint Utilizado para obtener el Token de Autorizacion</p>
             <h3>Schema</h3>
             <div class="codeDiv">
-                <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('beautified')"> <i class="ri-file-copy-2-fill"></i></span></div>
-                <pre id="beautified" class="prettyprint">
+                <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('tokenbeautified')"> <i class="ri-file-copy-2-fill"></i></span></div>
+                <pre id="tokenbeautified" class="prettyprint">
 {
-  <span class="keyJson">"$"schema</span> :"https://json-schema.org/draft/2020-12/schema",
+  <span class="keyJson">"$schema"</span> :"https://json-schema.org/draft/2020-12/schema",
   <span class="keyJson">"title"</span> :"Authorization",
   <span class="keyJson">"description"</span> :"Authorization parameters",
   <span class="keyJson">"type"</span> :"object",
@@ -113,22 +113,26 @@
             </div>
           </div>
           <div class="example">
-            <p>Example Request</p>
-            <div id="modalReqToken" class="codeDiv">
-              http://tudominio.com/v1/authorization/token 
-                <pre class="prettyprint">
-
-{       
-  <span class="keyJson">"email"</span>: "test2@gmail.com", 
-  <span class="keyJson">"password"</span>: "thisIsPassword"
-}
-                </pre>
+            <div class="modalContainer">
+              <p>Example Request</p>
+              <div id="modalReqToken" class="codeDiv">
+                http://tudominio.com/v1/authorization/token 
+                  <pre class="prettyprint">
+  
+  {       
+    <span class="keyJson">"email"</span>: "test2@gmail.com", 
+    <span class="keyJson">"password"</span>: "thisIsPassword"
+  }
+                  </pre>
+              </div>
             </div>
-            <div  id="modalResToken">
-              <p>Example Response</p>
-            <div class="codeDiv">
-              <span id="btn-close" class="btn-close close" onclick="openModal('modalResToken')">&times;</span>
-                <pre id="pre-resp" class="prettyprint">
+            
+            <div id="modalResToken">
+              <div class="modalContainer">
+                <span id="btn-close" class="btn-close close" onclick="openModal('modalResToken')">&times;</span>
+                <p>Example Response</p>
+                <div id="modalCodeDiv" class="codeDiv max-height">
+                  <pre id="pre-resp" class="prettyprint">
 {
   <span class="keyJson">"username"</span> : "avargas@gmail.com",
   <span class="keyJson">"email"</span> : "avargas@gmail.com",
@@ -136,10 +140,102 @@
   <span class="keyJson">"token"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy",
   <span class="keyJson">"refreshToken"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzNjkzOTk2fQ.wT-WrhotmOtVVOyXckXAvUI92InEVCXwVWZt7XMA4KlNHJ2rrugMg1Fm4GSQPaxS"
 }
-                </pre>
-                <button id="btn-modal" class="btn-view-more" onclick="openModal('modalResToken')">view more</button>
-            </div>
-            </div>
+{
+  <span class="keyJson">"username"</span> : "avargas@gmail.com",
+  <span class="keyJson">"email"</span> : "avargas@gmail.com",
+  <span class="keyJson">"role"</span> : "USER",
+  <span class="keyJson">"token"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy",
+  <span class="keyJson">"refreshToken"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzNjkzOTk2fQ.wT-WrhotmOtVVOyXckXAvUI92InEVCXwVWZt7XMA4KlNHJ2rrugMg1Fm4GSQPaxS"
+}
+{
+  <span class="keyJson">"username"</span> : "avargas@gmail.com",
+  <span class="keyJson">"email"</span> : "avargas@gmail.com",
+  <span class="keyJson">"role"</span> : "USER",
+  <span class="keyJson">"token"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy",
+  <span class="keyJson">"refreshToken"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzNjkzOTk2fQ.wT-WrhotmOtVVOyXckXAvUI92InEVCXwVWZt7XMA4KlNHJ2rrugMg1Fm4GSQPaxS"
+}
+{
+  <span class="keyJson">"username"</span> : "avargas@gmail.com",
+  <span class="keyJson">"email"</span> : "avargas@gmail.com",
+  <span class="keyJson">"role"</span> : "USER",
+  <span class="keyJson">"token"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy",
+  <span class="keyJson">"refreshToken"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzNjkzOTk2fQ.wT-WrhotmOtVVOyXckXAvUI92InEVCXwVWZt7XMA4KlNHJ2rrugMg1Fm4GSQPaxS"
+}
+{
+  <span class="keyJson">"username"</span> : "avargas@gmail.com",
+  <span class="keyJson">"email"</span> : "avargas@gmail.com",
+  <span class="keyJson">"role"</span> : "USER",
+  <span class="keyJson">"token"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy",
+  <span class="keyJson">"refreshToken"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzNjkzOTk2fQ.wT-WrhotmOtVVOyXckXAvUI92InEVCXwVWZt7XMA4KlNHJ2rrugMg1Fm4GSQPaxS"
+}
+{
+  <span class="keyJson">"username"</span> : "avargas@gmail.com",
+  <span class="keyJson">"email"</span> : "avargas@gmail.com",
+  <span class="keyJson">"role"</span> : "USER",
+  <span class="keyJson">"token"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy",
+  <span class="keyJson">"refreshToken"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzNjkzOTk2fQ.wT-WrhotmOtVVOyXckXAvUI92InEVCXwVWZt7XMA4KlNHJ2rrugMg1Fm4GSQPaxS"
+}
+{
+  <span class="keyJson">"username"</span> : "avargas@gmail.com",
+  <span class="keyJson">"email"</span> : "avargas@gmail.com",
+  <span class="keyJson">"role"</span> : "USER",
+  <span class="keyJson">"token"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy",
+  <span class="keyJson">"refreshToken"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzNjkzOTk2fQ.wT-WrhotmOtVVOyXckXAvUI92InEVCXwVWZt7XMA4KlNHJ2rrugMg1Fm4GSQPaxS"
+}
+{
+  <span class="keyJson">"username"</span> : "avargas@gmail.com",
+  <span class="keyJson">"email"</span> : "avargas@gmail.com",
+  <span class="keyJson">"role"</span> : "USER",
+  <span class="keyJson">"token"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy",
+  <span class="keyJson">"refreshToken"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzNjkzOTk2fQ.wT-WrhotmOtVVOyXckXAvUI92InEVCXwVWZt7XMA4KlNHJ2rrugMg1Fm4GSQPaxS"
+}
+{
+  <span class="keyJson">"username"</span> : "avargas@gmail.com",
+  <span class="keyJson">"email"</span> : "avargas@gmail.com",
+  <span class="keyJson">"role"</span> : "USER",
+  <span class="keyJson">"token"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy",
+  <span class="keyJson">"refreshToken"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzNjkzOTk2fQ.wT-WrhotmOtVVOyXckXAvUI92InEVCXwVWZt7XMA4KlNHJ2rrugMg1Fm4GSQPaxS"
+}
+{
+  <span class="keyJson">"username"</span> : "avargas@gmail.com",
+  <span class="keyJson">"email"</span> : "avargas@gmail.com",
+  <span class="keyJson">"role"</span> : "USER",
+  <span class="keyJson">"token"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy",
+  <span class="keyJson">"refreshToken"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzNjkzOTk2fQ.wT-WrhotmOtVVOyXckXAvUI92InEVCXwVWZt7XMA4KlNHJ2rrugMg1Fm4GSQPaxS"
+}
+{
+  <span class="keyJson">"username"</span> : "avargas@gmail.com",
+  <span class="keyJson">"email"</span> : "avargas@gmail.com",
+  <span class="keyJson">"role"</span> : "USER",
+  <span class="keyJson">"token"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy",
+  <span class="keyJson">"refreshToken"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzNjkzOTk2fQ.wT-WrhotmOtVVOyXckXAvUI92InEVCXwVWZt7XMA4KlNHJ2rrugMg1Fm4GSQPaxS"
+}
+{
+  <span class="keyJson">"username"</span> : "avargas@gmail.com",
+  <span class="keyJson">"email"</span> : "avargas@gmail.com",
+  <span class="keyJson">"role"</span> : "USER",
+  <span class="keyJson">"token"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy",
+  <span class="keyJson">"refreshToken"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzNjkzOTk2fQ.wT-WrhotmOtVVOyXckXAvUI92InEVCXwVWZt7XMA4KlNHJ2rrugMg1Fm4GSQPaxS"
+}
+{
+  <span class="keyJson">"username"</span> : "avargas@gmail.com",
+  <span class="keyJson">"email"</span> : "avargas@gmail.com",
+  <span class="keyJson">"role"</span> : "USER",
+  <span class="keyJson">"token"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy",
+  <span class="keyJson">"refreshToken"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzNjkzOTk2fQ.wT-WrhotmOtVVOyXckXAvUI92InEVCXwVWZt7XMA4KlNHJ2rrugMg1Fm4GSQPaxS"
+}
+{
+  <span class="keyJson">"username"</span> : "avargas@gmail.com",
+  <span class="keyJson">"email"</span> : "avargas@gmail.com",
+  <span class="keyJson">"role"</span> : "USER",
+  <span class="keyJson">"token"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy",
+  <span class="keyJson">"refreshToken"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzNjkzOTk2fQ.wT-WrhotmOtVVOyXckXAvUI92InEVCXwVWZt7XMA4KlNHJ2rrugMg1Fm4GSQPaxS"
+}
+                    </pre>
+                    <button id="btn-modal" class="btn-view-more" onclick="openModal('modalResToken')">view more</button>
+                </div>
+                </div>
+              </div>
           </div>
           <span class="separador"></span>
         </section>
