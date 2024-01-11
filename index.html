@@ -45,15 +45,18 @@
         </div>
       </nav>
       <main>
-        <section class="endpoint">
+<!-- Home Description Section  + CHECK + --> 
+        <section class="endpoint no-example">
           <div class="description">
             <h1>Andres Vargas API-REST</h1>
             <p>Esta api ofrece endpoints con los cuales se puede accesar a los datos del server, brindandole al usuario diferentes operaciones y funcionalidades.</p>
           </div>
           <div id="example" class="example empty"></div>
-          <span class="separador"></span>
+          
         </section>
-        <section class="endpoint">
+        <div class="separador"></div> <!-- Separador de Seccion -->
+<!-- Authorization Section   + CHECK + -->
+        <section class="endpoint no-example">
           <div class="description">
             <h1 class="title">V1</h1>
             <p>Esta es la primer versión de la Api-Rest, donde se encontraran los endpoints del Backend</p>
@@ -66,9 +69,10 @@
             </div>
           </div>
           <div class="example empty"></div>
-          <span class="separador"></span>
+          
         </section>
-
+        <div class="separador"></div> <!-- Separador de Seccion -->
+<!-- Token Section   + CHECK + -->
         <section class="endpoint">
           <div class="description">
             <h1 class="post">Token</h1>
@@ -77,46 +81,44 @@
             <p>Endpoint Utilizado para obtener el Token de Autorizacion</p>
             <h3>Schema</h3>
             <div class="codeDiv">
-                <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('tokenbeautified')"> <i class="ri-file-copy-2-fill"></i></span></div>
-                <pre id="tokenbeautified" class="prettyprint">
+              <pre class="prettyprint pre-wraper">
 {
-  <span class="keyJson">"$schema"</span> :"https://json-schema.org/draft/2020-12/schema",
-  <span class="keyJson">"title"</span> :"Authorization",
-  <span class="keyJson">"description"</span> :"Authorization parameters",
-  <span class="keyJson">"type"</span> :"object",
-  <span class="keyJson">"properties"</span> :{
-      <span class="keyJson">"email"</span> :{
-        <span class="keyJson">"description"</span> :"Email from user",
-        <span class="keyJson">"type"</span> :"string"
-      },
-      <span class="keyJson">"password"</span>:{
-        <span class="keyJson">"description"</span>:"Password from user",
-        <span class="keyJson">"type"</span>:"string"
-      }
-  },
-  <span class="keyJson">"required"</span>:["email","password"]
+<span class="keyJson">"$schema"</span> :"https://json-schema.org/draft/2020-12/schema",
+<span class="keyJson">"title"</span> :"Authorization",
+<span class="keyJson">"description"</span> :"Authorization parameters",
+<span class="keyJson">"type"</span> :"object",
+<span class="keyJson">"properties"</span> :{
+    <span class="keyJson">"email"</span> :{
+      <span class="keyJson">"description"</span> :"Email from user",
+      <span class="keyJson">"type"</span> :"string"
+    },
+    <span class="keyJson">"password"</span>:{
+      <span class="keyJson">"description"</span>:"Password from user",
+      <span class="keyJson">"type"</span>:"string"
+    }
+},
+<span class="keyJson">"required"</span>:["email","password"]
 }
-                </pre>
+              </pre>
             </div>
             <h3>Token</h3>
             <p>El Token Se crea de acuerdo a las credenciales que le pasamos en el body</p>
             <div class="codeDiv">
-              <span>Json</span>
-              <div class="codeContainer">
-                <pre class="prettyprint">
+              <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('tokenbeautified')"> <i class="ri-file-copy-2-fill"></i></span></div>
+                <pre class="prettyprint pre-wraper">
 {       
   <span class="keyJson">"email"</span>: "test2@gmail.com", 
   <span class="keyJson">"password"</span>: "thisIsPassword"
 }
                 </pre>
-              </div>
             </div>
           </div>
           <div class="example">
-            <div class="modalContainer">
-              <p>Example Request</p>
-              <div id="modalReqToken" class="codeDiv">
-                http://tudominio.com/v1/authorization/token 
+            <div id="modalReqToken">
+              <div class="modalContainer">
+                <p>Example Request</p>
+                <div class="codeDiv">
+                  <p>http://tudominio.com/v1/authorization/token</p>
                   <pre class="prettyprint">
   
   {       
@@ -124,106 +126,15 @@
     <span class="keyJson">"password"</span>: "thisIsPassword"
   }
                   </pre>
+                </div>
               </div>
             </div>
-            
-            <div id="modalResToken">
+            <div id="modalResToken"> <!--div to contain the Modal-->
               <div class="modalContainer">
                 <span id="btn-close" class="btn-close close" onclick="openModal('modalResToken')">&times;</span>
                 <p>Example Response</p>
-                <div id="modalCodeDiv" class="codeDiv max-height">
-                  <pre id="pre-resp" class="prettyprint">
-{
-  <span class="keyJson">"username"</span> : "avargas@gmail.com",
-  <span class="keyJson">"email"</span> : "avargas@gmail.com",
-  <span class="keyJson">"role"</span> : "USER",
-  <span class="keyJson">"token"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy",
-  <span class="keyJson">"refreshToken"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzNjkzOTk2fQ.wT-WrhotmOtVVOyXckXAvUI92InEVCXwVWZt7XMA4KlNHJ2rrugMg1Fm4GSQPaxS"
-}
-{
-  <span class="keyJson">"username"</span> : "avargas@gmail.com",
-  <span class="keyJson">"email"</span> : "avargas@gmail.com",
-  <span class="keyJson">"role"</span> : "USER",
-  <span class="keyJson">"token"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy",
-  <span class="keyJson">"refreshToken"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzNjkzOTk2fQ.wT-WrhotmOtVVOyXckXAvUI92InEVCXwVWZt7XMA4KlNHJ2rrugMg1Fm4GSQPaxS"
-}
-{
-  <span class="keyJson">"username"</span> : "avargas@gmail.com",
-  <span class="keyJson">"email"</span> : "avargas@gmail.com",
-  <span class="keyJson">"role"</span> : "USER",
-  <span class="keyJson">"token"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy",
-  <span class="keyJson">"refreshToken"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzNjkzOTk2fQ.wT-WrhotmOtVVOyXckXAvUI92InEVCXwVWZt7XMA4KlNHJ2rrugMg1Fm4GSQPaxS"
-}
-{
-  <span class="keyJson">"username"</span> : "avargas@gmail.com",
-  <span class="keyJson">"email"</span> : "avargas@gmail.com",
-  <span class="keyJson">"role"</span> : "USER",
-  <span class="keyJson">"token"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy",
-  <span class="keyJson">"refreshToken"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzNjkzOTk2fQ.wT-WrhotmOtVVOyXckXAvUI92InEVCXwVWZt7XMA4KlNHJ2rrugMg1Fm4GSQPaxS"
-}
-{
-  <span class="keyJson">"username"</span> : "avargas@gmail.com",
-  <span class="keyJson">"email"</span> : "avargas@gmail.com",
-  <span class="keyJson">"role"</span> : "USER",
-  <span class="keyJson">"token"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy",
-  <span class="keyJson">"refreshToken"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzNjkzOTk2fQ.wT-WrhotmOtVVOyXckXAvUI92InEVCXwVWZt7XMA4KlNHJ2rrugMg1Fm4GSQPaxS"
-}
-{
-  <span class="keyJson">"username"</span> : "avargas@gmail.com",
-  <span class="keyJson">"email"</span> : "avargas@gmail.com",
-  <span class="keyJson">"role"</span> : "USER",
-  <span class="keyJson">"token"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy",
-  <span class="keyJson">"refreshToken"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzNjkzOTk2fQ.wT-WrhotmOtVVOyXckXAvUI92InEVCXwVWZt7XMA4KlNHJ2rrugMg1Fm4GSQPaxS"
-}
-{
-  <span class="keyJson">"username"</span> : "avargas@gmail.com",
-  <span class="keyJson">"email"</span> : "avargas@gmail.com",
-  <span class="keyJson">"role"</span> : "USER",
-  <span class="keyJson">"token"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy",
-  <span class="keyJson">"refreshToken"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzNjkzOTk2fQ.wT-WrhotmOtVVOyXckXAvUI92InEVCXwVWZt7XMA4KlNHJ2rrugMg1Fm4GSQPaxS"
-}
-{
-  <span class="keyJson">"username"</span> : "avargas@gmail.com",
-  <span class="keyJson">"email"</span> : "avargas@gmail.com",
-  <span class="keyJson">"role"</span> : "USER",
-  <span class="keyJson">"token"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy",
-  <span class="keyJson">"refreshToken"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzNjkzOTk2fQ.wT-WrhotmOtVVOyXckXAvUI92InEVCXwVWZt7XMA4KlNHJ2rrugMg1Fm4GSQPaxS"
-}
-{
-  <span class="keyJson">"username"</span> : "avargas@gmail.com",
-  <span class="keyJson">"email"</span> : "avargas@gmail.com",
-  <span class="keyJson">"role"</span> : "USER",
-  <span class="keyJson">"token"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy",
-  <span class="keyJson">"refreshToken"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzNjkzOTk2fQ.wT-WrhotmOtVVOyXckXAvUI92InEVCXwVWZt7XMA4KlNHJ2rrugMg1Fm4GSQPaxS"
-}
-{
-  <span class="keyJson">"username"</span> : "avargas@gmail.com",
-  <span class="keyJson">"email"</span> : "avargas@gmail.com",
-  <span class="keyJson">"role"</span> : "USER",
-  <span class="keyJson">"token"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy",
-  <span class="keyJson">"refreshToken"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzNjkzOTk2fQ.wT-WrhotmOtVVOyXckXAvUI92InEVCXwVWZt7XMA4KlNHJ2rrugMg1Fm4GSQPaxS"
-}
-{
-  <span class="keyJson">"username"</span> : "avargas@gmail.com",
-  <span class="keyJson">"email"</span> : "avargas@gmail.com",
-  <span class="keyJson">"role"</span> : "USER",
-  <span class="keyJson">"token"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy",
-  <span class="keyJson">"refreshToken"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzNjkzOTk2fQ.wT-WrhotmOtVVOyXckXAvUI92InEVCXwVWZt7XMA4KlNHJ2rrugMg1Fm4GSQPaxS"
-}
-{
-  <span class="keyJson">"username"</span> : "avargas@gmail.com",
-  <span class="keyJson">"email"</span> : "avargas@gmail.com",
-  <span class="keyJson">"role"</span> : "USER",
-  <span class="keyJson">"token"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy",
-  <span class="keyJson">"refreshToken"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzNjkzOTk2fQ.wT-WrhotmOtVVOyXckXAvUI92InEVCXwVWZt7XMA4KlNHJ2rrugMg1Fm4GSQPaxS"
-}
-{
-  <span class="keyJson">"username"</span> : "avargas@gmail.com",
-  <span class="keyJson">"email"</span> : "avargas@gmail.com",
-  <span class="keyJson">"role"</span> : "USER",
-  <span class="keyJson">"token"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy",
-  <span class="keyJson">"refreshToken"</span> : "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzNjkzOTk2fQ.wT-WrhotmOtVVOyXckXAvUI92InEVCXwVWZt7XMA4KlNHJ2rrugMg1Fm4GSQPaxS"
-}
+                <div class="codeDiv ">
+                  <pre class="prettyprint">
 {
   <span class="keyJson">"username"</span> : "avargas@gmail.com",
   <span class="keyJson">"email"</span> : "avargas@gmail.com",
@@ -234,12 +145,115 @@
                     </pre>
                     <button id="btn-modal" class="btn-view-more" onclick="openModal('modalResToken')">view more</button>
                 </div>
+              </div>
+            </div>
+          </div>
+          
+        </section>
+        <div class="separador"></div> <!-- Separador de Seccion -->
+<!-- Creation User Section   + CHECK + -->
+        <section class="endpoint">
+          <div class="description">
+            <h1 class="post">Create User</h1>
+            <div class="endpoint-box"> https://dominio.com/v1/auth/register</div>
+            <h3>Description</h3>
+            <p>Endpoint Utilizado para crear un usuario en base de datos, este regresara informacion del usuario asi como el token y refresh token de la session</p>
+            <h3>body</h3>
+            <div class="codeDiv">
+              <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('tokenbeautified')"> <i class="ri-file-copy-2-fill"></i></span></div>
+              <pre class="prettyprint pre-wraper">
+      {
+        <span class="keyJson">"name"</span> :"Edgar Andres",
+        <span class="keyJson">"apellido_paterno"</span> :"Vargas",
+        <span class="keyJson">"apellido_materno"</span> :"Mora",
+        <span class="keyJson">"email"</span> :"avargas@gmail.com",
+        <span class="keyJson">"password"</span> :"1234"
+      }
+              </pre>
+            </div>
+          </div>
+          <div class="example">
+              <div id="modalReqCUser">
+                <div class="modalContainer">
+                  <p>Request Example</p>
+                  <div class="codeDiv">
+                    <pre class="prettyprint">
+      {       
+        <span class="keyJson">"email"</span>: "test2@gmail.com", 
+        <span class="keyJson">"password"</span>: "thisIsPassword"
+      }
+                    </pre>
+                  </div>
+                </div>
+              </div>
+              <div id="modalResCUser">
+                <div class="modalContainer">               
+                  <span id="btn-close" class="btn-close close" onclick="openModal('modalResToken')">&times;</span>
+                  <p>Response Example</p>
+                  <div class="codeDiv">
+                    <pre class="prettyprint">
+{
+  <span class="keyJson">"username"</span> : "avargas@gmail.com",
+}
+                    </pre>
+                  </div>
                 </div>
               </div>
           </div>
-          <span class="separador"></span>
         </section>
-        <section>
+        <div class="separador"></div> <!-- Separador de Seccion -->
+<!-- Users Section -->
+        <section class="endpoint">
+          <div class="description">
+              <h1 class="put"> Update User </h1>
+              <div class="endpoint-box"> https://dominio.com/v1/auth/update/${uuid_user}</div>
+            <h3>Description</h3>
+            <p> Endpoint utilizado para actualizar la informacion alojada en base de datos de un usuario, se requiere <b>Authorization Token</b> para esta operacion asi como el identificador Unico del usuario (UUID)</p>
+            <h3>body</h3>
+            <div class="codeDiv">
+              <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('tokenbeautified')"> <i class="ri-file-copy-2-fill"></i></span></div>
+              <pre class="prettyprint pre-wraper">
+{
+  <span class="keyJson">"name"</span> :"Justin",
+  <span class="keyJson">"apellido_paterno"</span> :"Martinez",
+  <span class="keyJson">"apellido_materno"</span> :"Roa",
+  <span class="keyJson">"role"</span> : "USER",
+}
+              </pre>
+            </div>
+          </div>
+          <div class="example">
+            <div id="modalReqCUser">
+              <div class="modalContainer">
+                <p>Request Example</p>
+                <div class="codeDiv">
+                  <pre class="prettyprint">
+    {       
+      <span class="keyJson">"email"</span>: "test2@gmail.com", 
+      <span class="keyJson">"password"</span>: "thisIsPassword"
+    }
+                  </pre>
+                </div>
+              </div>
+            </div>
+            <div id="modalResCUser">
+              <div class="modalContainer">               
+                <span id="btn-close" class="btn-close close" onclick="openModal('modalResToken')">&times;</span>
+                <p>Response Example</p>
+                <div class="codeDiv">
+                  <pre class="prettyprint">
+{
+<span class="keyJson">"username"</span> : "avargas@gmail.com",
+}
+                  </pre>
+                </div>
+              </div>
+            </div>
+        </div>
+        </section>
+        <div class="separador"></div> <!-- Separador de Seccion -->
+        <!-- UPDATE USER Section -->
+        <section class="endpoint">
           <div class="description">
               <h1 class="post">Create User</h1>
               <div class="endpoint-box"> https://dominio.com/v1/auth/register</div>
@@ -247,7 +261,7 @@
             <p>Endpoint Utilizado para crear un usuario en base de datos, este regresara informacion del usuario asi como el token y refresh token de la session</p>
             <h3>body</h3>
             <div class="codeDiv">
-              <p>Json</p>
+              <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('tokenbeautified')"> <i class="ri-file-copy-2-fill"></i></span></div>
               <pre class="prettyprint pre-wraper">
 {
   <span class="keyJson">"name"</span> :"Edgar Andres",
@@ -260,8 +274,450 @@
             </div>
           </div>
           <div class="example">
-
+            <div id="modalReqCUser">
+              <div class="modalContainer">
+                <p>Request Example</p>
+                <div class="codeDiv">
+                  <pre class="prettyprint">
+    {       
+      <span class="keyJson">"email"</span>: "test2@gmail.com", 
+      <span class="keyJson">"password"</span>: "thisIsPassword"
+    }
+                  </pre>
+                </div>
+              </div>
+            </div>
+            <div id="modalResCUser">
+              <div class="modalContainer">               
+                <span id="btn-close" class="btn-close close" onclick="openModal('modalResToken')">&times;</span>
+                <p>Response Example</p>
+                <div class="codeDiv">
+                  <pre class="prettyprint">
+{
+<span class="keyJson">"username"</span> : "avargas@gmail.com",
+}
+                  </pre>
+                </div>
+              </div>
+            </div>
+        </div>
+          
+        </section>
+        <div class="separador"></div> <!-- Separador de Seccion -->
+        <!-- DELETE User Section -->
+        <section class="endpoint">
+          <div class="description">
+              <h1 class="post">Create User</h1>
+              <div class="endpoint-box"> https://dominio.com/v1/auth/register</div>
+            <h3>Description</h3>
+            <p>Endpoint Utilizado para crear un usuario en base de datos, este regresara informacion del usuario asi como el token y refresh token de la session</p>
+            <h3>body</h3>
+            <div class="codeDiv">
+              <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('tokenbeautified')"> <i class="ri-file-copy-2-fill"></i></span></div>
+              <pre class="prettyprint pre-wraper">
+{
+  <span class="keyJson">"name"</span> :"Edgar Andres",
+  <span class="keyJson">"apellido_paterno"</span> :"Vargas",
+  <span class="keyJson">"apellido_materno"</span> :"Mora",
+  <span class="keyJson">"email"</span> :"avargas@gmail.com",
+  <span class="keyJson">"password"</span> :"1234"
+}
+              </pre>
+            </div>
           </div>
+          <div class="example">
+            <div id="modalReqCUser">
+              <div class="modalContainer">
+                <p>Request Example</p>
+                <div class="codeDiv">
+                  <pre class="prettyprint">
+    {       
+      <span class="keyJson">"email"</span>: "test2@gmail.com", 
+      <span class="keyJson">"password"</span>: "thisIsPassword"
+    }
+                  </pre>
+                </div>
+              </div>
+            </div>
+            <div id="modalResCUser">
+              <div class="modalContainer">               
+                <span id="btn-close" class="btn-close close" onclick="openModal('modalResToken')">&times;</span>
+                <p>Response Example</p>
+                <div class="codeDiv">
+                  <pre class="prettyprint">
+{
+<span class="keyJson">"username"</span> : "avargas@gmail.com",
+}
+                  </pre>
+                </div>
+              </div>
+            </div>
+        </div>
+          
+        </section>
+        <div class="separador"></div> <!-- Separador de Seccion -->
+        <!-- Get List Users Section -->
+        <section class="endpoint">
+          <div class="description">
+              <h1 class="post">Create User</h1>
+              <div class="endpoint-box"> https://dominio.com/v1/auth/register</div>
+            <h3>Description</h3>
+            <p>Endpoint Utilizado para crear un usuario en base de datos, este regresara informacion del usuario asi como el token y refresh token de la session</p>
+            <h3>body</h3>
+            <div class="codeDiv">
+              <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('tokenbeautified')"> <i class="ri-file-copy-2-fill"></i></span></div>
+              <pre class="prettyprint pre-wraper">
+{
+  <span class="keyJson">"name"</span> :"Edgar Andres",
+  <span class="keyJson">"apellido_paterno"</span> :"Vargas",
+  <span class="keyJson">"apellido_materno"</span> :"Mora",
+  <span class="keyJson">"email"</span> :"avargas@gmail.com",
+  <span class="keyJson">"password"</span> :"1234"
+}
+              </pre>
+            </div>
+          </div>
+          <div class="example">
+            <div id="modalReqCUser">
+              <div class="modalContainer">
+                <p>Request Example</p>
+                <div class="codeDiv">
+                  <pre class="prettyprint">
+    {       
+      <span class="keyJson">"email"</span>: "test2@gmail.com", 
+      <span class="keyJson">"password"</span>: "thisIsPassword"
+    }
+                  </pre>
+                </div>
+              </div>
+            </div>
+            <div id="modalResCUser">
+              <div class="modalContainer">               
+                <span id="btn-close" class="btn-close close" onclick="openModal('modalResToken')">&times;</span>
+                <p>Response Example</p>
+                <div class="codeDiv">
+                  <pre class="prettyprint">
+{
+<span class="keyJson">"username"</span> : "avargas@gmail.com",
+}
+                  </pre>
+                </div>
+              </div>
+            </div>
+        </div>
+          
+        </section>
+        <div class="separador"></div> <!-- Separador de Seccion -->
+        <!-- Store Items Section -->
+        <!-- Items List Section -->
+        <section class="endpoint">
+          <div class="description">
+              <h1 class="post">Create User</h1>
+              <div class="endpoint-box"> https://dominio.com/v1/auth/register</div>
+            <h3>Description</h3>
+            <p>Endpoint Utilizado para crear un usuario en base de datos, este regresara informacion del usuario asi como el token y refresh token de la session</p>
+            <h3>body</h3>
+            <div class="codeDiv">
+              <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('tokenbeautified')"> <i class="ri-file-copy-2-fill"></i></span></div>
+              <pre class="prettyprint pre-wraper">
+{
+  <span class="keyJson">"name"</span> :"Edgar Andres",
+  <span class="keyJson">"apellido_paterno"</span> :"Vargas",
+  <span class="keyJson">"apellido_materno"</span> :"Mora",
+  <span class="keyJson">"email"</span> :"avargas@gmail.com",
+  <span class="keyJson">"password"</span> :"1234"
+}
+              </pre>
+            </div>
+          </div>
+          <div class="example">
+            <div id="modalReqCUser">
+              <div class="modalContainer">
+                <p>Request Example</p>
+                <div class="codeDiv">
+                  <pre class="prettyprint">
+    {       
+      <span class="keyJson">"email"</span>: "test2@gmail.com", 
+      <span class="keyJson">"password"</span>: "thisIsPassword"
+    }
+                  </pre>
+                </div>
+              </div>
+            </div>
+            <div id="modalResCUser">
+              <div class="modalContainer">               
+                <span id="btn-close" class="btn-close close" onclick="openModal('modalResToken')">&times;</span>
+                <p>Response Example</p>
+                <div class="codeDiv">
+                  <pre class="prettyprint">
+{
+<span class="keyJson">"username"</span> : "avargas@gmail.com",
+}
+                  </pre>
+                </div>
+              </div>
+            </div>
+        </div>
+          
+        </section>
+        <div class="separador"></div> <!-- Separador de Seccion -->
+        <!-- Filtered List Section -->
+        <section class="endpoint">
+          <div class="description">
+              <h1 class="post">Create User</h1>
+              <div class="endpoint-box"> https://dominio.com/v1/auth/register</div>
+            <h3>Description</h3>
+            <p>Endpoint Utilizado para crear un usuario en base de datos, este regresara informacion del usuario asi como el token y refresh token de la session</p>
+            <h3>body</h3>
+            <div class="codeDiv">
+              <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('tokenbeautified')"> <i class="ri-file-copy-2-fill"></i></span></div>
+              <pre class="prettyprint pre-wraper">
+{
+  <span class="keyJson">"name"</span> :"Edgar Andres",
+  <span class="keyJson">"apellido_paterno"</span> :"Vargas",
+  <span class="keyJson">"apellido_materno"</span> :"Mora",
+  <span class="keyJson">"email"</span> :"avargas@gmail.com",
+  <span class="keyJson">"password"</span> :"1234"
+}
+              </pre>
+            </div>
+          </div>
+          <div class="example">
+            <div id="modalReqCUser">
+              <div class="modalContainer">
+                <p>Request Example</p>
+                <div class="codeDiv">
+                  <pre class="prettyprint">
+    {       
+      <span class="keyJson">"email"</span>: "test2@gmail.com", 
+      <span class="keyJson">"password"</span>: "thisIsPassword"
+    }
+                  </pre>
+                </div>
+              </div>
+            </div>
+            <div id="modalResCUser">
+              <div class="modalContainer">               
+                <span id="btn-close" class="btn-close close" onclick="openModal('modalResToken')">&times;</span>
+                <p>Response Example</p>
+                <div class="codeDiv">
+                  <pre class="prettyprint">
+{
+<span class="keyJson">"username"</span> : "avargas@gmail.com",
+}
+                  </pre>
+                </div>
+              </div>
+            </div>
+        </div>
+          
+        </section>
+        <div class="separador"></div> <!-- Separador de Seccion -->
+        <!-- Filtered List Section -->
+        <section class="endpoint">
+          <div class="description">
+              <h1 class="post">Create User</h1>
+              <div class="endpoint-box"> https://dominio.com/v1/auth/register</div>
+            <h3>Description</h3>
+            <p>Endpoint Utilizado para crear un usuario en base de datos, este regresara informacion del usuario asi como el token y refresh token de la session</p>
+            <h3>body</h3>
+            <div class="codeDiv">
+              <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('tokenbeautified')"> <i class="ri-file-copy-2-fill"></i></span></div>
+              <pre class="prettyprint pre-wraper">
+{
+  <span class="keyJson">"name"</span> :"Edgar Andres",
+  <span class="keyJson">"apellido_paterno"</span> :"Vargas",
+  <span class="keyJson">"apellido_materno"</span> :"Mora",
+  <span class="keyJson">"email"</span> :"avargas@gmail.com",
+  <span class="keyJson">"password"</span> :"1234"
+}
+              </pre>
+            </div>
+          </div>
+          <div class="example">
+            <div id="modalReqCUser">
+              <div class="modalContainer">
+                <p>Request Example</p>
+                <div class="codeDiv">
+                  <pre class="prettyprint">
+    {       
+      <span class="keyJson">"email"</span>: "test2@gmail.com", 
+      <span class="keyJson">"password"</span>: "thisIsPassword"
+    }
+                  </pre>
+                </div>
+              </div>
+            </div>
+            <div id="modalResCUser">
+              <div class="modalContainer">               
+                <span id="btn-close" class="btn-close close" onclick="openModal('modalResToken')">&times;</span>
+                <p>Response Example</p>
+                <div class="codeDiv">
+                  <pre class="prettyprint">
+{
+<span class="keyJson">"username"</span> : "avargas@gmail.com",
+}
+                  </pre>
+                </div>
+              </div>
+            </div>
+        </div>
+          
+        </section>
+        <div class="separador"></div> <!-- Separador de Seccion -->
+      <!-- Create New Item Section -->
+        <section class="endpoint">
+          <div class="description">
+              <h1 class="post">Create User</h1>
+              <div class="endpoint-box"> https://dominio.com/v1/auth/register</div>
+            <h3>Description</h3>
+            <p>Endpoint Utilizado para crear un usuario en base de datos, este regresara informacion del usuario asi como el token y refresh token de la session</p>
+            <h3>body</h3>
+            <div class="codeDiv">
+              <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('tokenbeautified')"> <i class="ri-file-copy-2-fill"></i></span></div>
+              <pre class="prettyprint pre-wraper">
+{
+  <span class="keyJson">"name"</span> :"Edgar Andres",
+  <span class="keyJson">"apellido_paterno"</span> :"Vargas",
+  <span class="keyJson">"apellido_materno"</span> :"Mora",
+  <span class="keyJson">"email"</span> :"avargas@gmail.com",
+  <span class="keyJson">"password"</span> :"1234"
+}
+              </pre>
+            </div>
+          </div>
+          <div class="example">
+            <div id="modalReqCUser">
+              <div class="modalContainer">
+                <p>Request Example</p>
+                <div class="codeDiv">
+                  <pre class="prettyprint">
+    {       
+      <span class="keyJson">"email"</span>: "test2@gmail.com", 
+      <span class="keyJson">"password"</span>: "thisIsPassword"
+    }
+                  </pre>
+                </div>
+              </div>
+            </div>
+            <div id="modalResCUser">
+              <div class="modalContainer">               
+                <span id="btn-close" class="btn-close close" onclick="openModal('modalResToken')">&times;</span>
+                <p>Response Example</p>
+                <div class="codeDiv">
+                  <pre class="prettyprint">
+{
+<span class="keyJson">"username"</span> : "avargas@gmail.com",
+}
+                  </pre>
+                </div>
+              </div>
+            </div>
+        </div>
+          
+        </section>
+        <div class="separador"></div> <!-- Separador de Seccion -->
+        <!-- Generate URL Payment Section -->
+        <section class="endpoint">
+          <div class="description">
+              <h1 class="post">Create User</h1>
+              <div class="endpoint-box"> https://dominio.com/v1/auth/register</div>
+            <h3>Description</h3>
+            <p>Endpoint Utilizado para crear un usuario en base de datos, este regresara informacion del usuario asi como el token y refresh token de la session</p>
+            <h3>body</h3>
+            <div class="codeDiv">
+              <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('tokenbeautified')"> <i class="ri-file-copy-2-fill"></i></span></div>
+              <pre class="prettyprint pre-wraper">
+{
+  <span class="keyJson">"name"</span> :"Edgar Andres",
+  <span class="keyJson">"apellido_paterno"</span> :"Vargas",
+  <span class="keyJson">"apellido_materno"</span> :"Mora",
+  <span class="keyJson">"email"</span> :"avargas@gmail.com",
+  <span class="keyJson">"password"</span> :"1234"
+}
+              </pre>
+            </div>
+          </div>
+          <div class="example">
+            <div id="modalReqCUser">
+              <div class="modalContainer">
+                <p>Request Example</p>
+                <div class="codeDiv">
+                  <pre class="prettyprint">
+    {       
+      <span class="keyJson">"email"</span>: "test2@gmail.com", 
+      <span class="keyJson">"password"</span>: "thisIsPassword"
+    }
+                  </pre>
+                </div>
+              </div>
+            </div>
+            <div id="modalResCUser">
+              <div class="modalContainer">               
+                <span id="btn-close" class="btn-close close" onclick="openModal('modalResToken')">&times;</span>
+                <p>Response Example</p>
+                <div class="codeDiv">
+                  <pre class="prettyprint">
+{
+<span class="keyJson">"username"</span> : "avargas@gmail.com",
+}
+                  </pre>
+                </div>
+              </div>
+            </div>
+        </div>
+          
+        </section>
+        <div class="separador"></div> <!-- Separador de Seccion -->
+        <!-- Validate Payment Section -->
+        <section class="endpoint">
+          <div class="description">
+              <h1 class="post">Create User</h1>
+              <div class="endpoint-box"> https://dominio.com/v1/auth/register</div>
+            <h3>Description</h3>
+            <p>Endpoint Utilizado para crear un usuario en base de datos, este regresara informacion del usuario asi como el token y refresh token de la session</p>
+            <h3>body</h3>
+            <div class="codeDiv">
+              <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('tokenbeautified')"> <i class="ri-file-copy-2-fill"></i></span></div>
+              <pre class="prettyprint pre-wraper">
+{
+  <span class="keyJson">"name"</span> :"Edgar Andres",
+  <span class="keyJson">"apellido_paterno"</span> :"Vargas",
+  <span class="keyJson">"apellido_materno"</span> :"Mora",
+  <span class="keyJson">"email"</span> :"avargas@gmail.com",
+  <span class="keyJson">"password"</span> :"1234"
+}
+              </pre>
+            </div>
+          </div>
+          <div class="example">
+            <div id="modalReqCUser">
+              <div class="modalContainer">
+                <p>Request Example</p>
+                <div class="codeDiv">
+                  <pre class="prettyprint">
+    {       
+      <span class="keyJson">"email"</span>: "test2@gmail.com", 
+      <span class="keyJson">"password"</span>: "thisIsPassword"
+    }
+                  </pre>
+                </div>
+              </div>
+            </div>
+            <div id="modalResCUser">
+              <div class="modalContainer">               
+                <span id="btn-close" class="btn-close close" onclick="openModal('modalResToken')">&times;</span>
+                <p>Response Example</p>
+                <div class="codeDiv">
+                  <pre class="prettyprint">
+{
+<span class="keyJson">"username"</span> : "avargas@gmail.com",
+}
+                  </pre>
+                </div>
+              </div>
+            </div>
+        </div>
         </section>
       </main>
     </div>

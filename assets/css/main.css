@@ -61,6 +61,11 @@ header h3 {
     font-weight: 700;
 }
 
+h4 {
+    justify-content: space-between;
+    align-items: center;
+}
+
 header img{
     margin-top: .75rem;
     width: 200px;
@@ -143,7 +148,13 @@ section {
     color: var(--title-font-color);
     background-color: var(--secundary-color);
 }
+.no-example {
+    grid-template-columns: 1fr !important;
+}
 
+.no-example .description .double-column {
+    justify-content: space-evenly;
+}
 section h3,h1 {
     color: var(--title-font-color);
 }
@@ -283,6 +294,7 @@ h1.post::before, h1.get::before, h1.delete::before, h1.put::before {
 .modal {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -300,6 +312,8 @@ h1.post::before, h1.get::before, h1.delete::before, h1.put::before {
 .modal .modalContainer {
     width: 50%;
     height: 80%;
+    padding: 4rem;
+
 }
 .modal .modalContainer .codeDiv {
     max-height: 80% !important;
@@ -323,11 +337,9 @@ h1.post::before, h1.get::before, h1.delete::before, h1.put::before {
 
   .modalContainer {
     background-color: var(--secundary-color);
-    padding: 4rem;
   }
 @media (width > 1600px) {
     .modalContainer {
-        padding: 4rem;
         align-self: center;
     }
 }
@@ -343,11 +355,20 @@ h1.post::before, h1.get::before, h1.delete::before, h1.put::before {
         font-size: 1.50rem;
         font-weight: 500;
     }
+    .modal .modalContainer {
+        width: 80%;
+    }
 }
 
 @media (width < 1300px){
     section {
         display: flex;
         flex-direction: column;
+    }
+    .modal .modalContainer {
+        width: 90%;
+    }
+    .modal .modalContainer pre {
+        font-size: 1rem;
     }
 }
