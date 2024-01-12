@@ -64,6 +64,7 @@ header h3 {
 h4 {
     justify-content: space-between;
     align-items: center;
+    color: var(--text-font-color);
 }
 
 header img{
@@ -161,15 +162,20 @@ section h3,h1 {
 section p, span {
     color: var(--text-font-color);
 }
+
 .double-column {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
+    color: var(--text-font-color);
+    }
 
-.double-column textarea {
+.double-column p {
     width: 50%;
     margin-right: 5rem;
+    font-size: 1rem;
+    background-color: var(--primary-color);
+    color: var(--text-font-color);
 }
 
 .example {
@@ -179,6 +185,8 @@ section p, span {
 }
 .empty {
     background: var(--primary-color);
+    padding: 0;
+    margin: 0;
 }
 .codeDiv {
     padding: 0 4rem;
@@ -189,14 +197,37 @@ section p, span {
     margin-top: 2rem;
     align-self: center;
 }
-
+.iconsDiv {
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
+}
+.git {
+    font-size: 3rem;
+    display: inline;
+    color: var(--text-font-color);
+}
+.git:hover {
+    color: var(--details-color);
+}
+#frontend::after {
+    content: "frontend";
+    font-size: 1rem;
+}
+#backend::after {
+    content: "backend";
+    font-size: 1rem;
+}
 .codeDiv pre {
     border: none !important;
     position: relative;
     font-size: 1rem;
     overflow: hidden;
 }
-
+.token {
+    color: var(--title-font-color);
+    padding: 2rem;
+}
 .pre-wraper {
     overflow-x: auto;
     white-space: pre-wrap;
@@ -204,6 +235,7 @@ section p, span {
     white-space: -pre-wrap;
     white-space: -o-pre-wrap;
     word-wrap: break-word;
+    word-break: break-all;
 }
 
 .btn-close {
@@ -272,7 +304,7 @@ h1.post::before, h1.get::before, h1.delete::before, h1.put::before {
     background-color: var(--primary-color);
     width: 100%;
     height: 2rem;
-    position: sticky;
+position: sticky;
     bottom: 1rem;
     cursor: pointer;
     border-radius: .5rem;
@@ -292,14 +324,14 @@ h1.post::before, h1.get::before, h1.delete::before, h1.put::before {
 /* Modal*/
 /* The Modal (background) */
 .modal {
-    display: flex;
+display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding: 0 10rem; /* Location of the box */
-    width: 100vw;
+    padding: 0 10rem; /* Location of the box */ 
+width: 100vw;
     height: 100vh;
     left: 50%;
     top: 50%;
@@ -308,7 +340,7 @@ h1.post::before, h1.get::before, h1.delete::before, h1.put::before {
     white-space: pre-wrap;
     word-wrap: break-word;
   }
-
+  
 .modal .modalContainer {
     width: 50%;
     height: 80%;
@@ -335,7 +367,7 @@ h1.post::before, h1.get::before, h1.delete::before, h1.put::before {
     cursor: pointer;
   }
 
-  .modalContainer {
+.modalContainer {
     background-color: var(--secundary-color);
   }
 @media (width > 1600px) {
@@ -355,7 +387,7 @@ h1.post::before, h1.get::before, h1.delete::before, h1.put::before {
         font-size: 1.50rem;
         font-weight: 500;
     }
-    .modal .modalContainer {
+.modal .modalContainer {
         width: 80%;
     }
 }
@@ -365,7 +397,7 @@ h1.post::before, h1.get::before, h1.delete::before, h1.put::before {
         display: flex;
         flex-direction: column;
     }
-    .modal .modalContainer {
+.modal .modalContainer {
         width: 90%;
     }
     .modal .modalContainer pre {

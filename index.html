@@ -49,10 +49,13 @@
         <section class="endpoint no-example">
           <div class="description">
             <h1>Andres Vargas API-REST</h1>
-            <p>Esta api ofrece endpoints con los cuales se puede accesar a los datos del server, brindandole al usuario diferentes operaciones y funcionalidades.</p>
+            <p>Esta api ofrece endpoints con los cuales se puede accesar a los datos del server, brindandole al usuario diferentes operaciones y funcionalidades.</p>   
+            <p>Puedes Consultar el codigo tanto Frontend como backend en los siguientes links:</p>
+            <div class="iconsDiv">              
+              <a id="frontend" class="git" href="https://github.com/AndresV-dev/api-rest-frontend"><i class="ri-github-line"></i></a>
+              <a id="backend" class="git" href="https://github.com/AndresV-dev/api-rest-backend"> <i class="ri-github-fill"></i></a></div>
           </div>
-          <div id="example" class="example empty"></div>
-          
+          <div id="example" class="example empty"></div>          
         </section>
         <div class="separador"></div> <!-- Separador de Seccion -->
 <!-- Authorization Section   + CHECK + -->
@@ -62,10 +65,9 @@
             <p>Esta es la primer versión de la Api-Rest, donde se encontraran los endpoints del Backend</p>
             <h1><b>Test Authorization Token |</b> Beaber Token</h1>
             <div class="double-column">
-              <h1>Token</h1>
-              <textarea name="Token" id="Token" cols="30" rows="10" readonly>
-                        eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy
-                    </textarea>
+              <h1>Authorization-token </h1>
+              <p class="pre-wraper token">eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy
+              </p>
             </div>
           </div>
           <div class="example empty"></div>
@@ -76,7 +78,7 @@
         <section class="endpoint">
           <div class="description">
             <h1 class="post">Token</h1>
-            <div class="endpoint-box"> https://dominio.com/v1/auth/token</div>
+            <div class="endpoint-box"> https://dominio.com.com/v1/auth/token</div>
             <h3>Description</h3>
             <p>Endpoint Utilizado para obtener el Token de Autorizacion</p>
             <h3>Schema</h3>
@@ -104,8 +106,7 @@
             <h3>Token</h3>
             <p>El Token Se crea de acuerdo a las credenciales que le pasamos en el body</p>
             <div class="codeDiv">
-              <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('tokenbeautified')"> <i class="ri-file-copy-2-fill"></i></span></div>
-                <pre class="prettyprint pre-wraper">
+                <pre id="CToken" class="prettyprint pre-wraper">
 {       
   <span class="keyJson">"email"</span>: "test2@gmail.com", 
   <span class="keyJson">"password"</span>: "thisIsPassword"
@@ -116,10 +117,10 @@
           <div class="example">
             <div id="modalReqToken">
               <div class="modalContainer">
-                <p>Example Request</p>
+                <p>Example Request : <strong>http://dominio.com.com/v1/authorization/token</strong></p>
                 <div class="codeDiv">
-                  <p>http://tudominio.com/v1/authorization/token</p>
-                  <pre class="prettyprint">
+                  <div class="double-column"><h4>Request Body</h4><span class="close" onclick="CopyToClipboard('CToken')"> <i class="ri-file-copy-2-fill"></i></span></div>
+                  <pre id="CToken" class="prettyprint">
   
   {       
     <span class="keyJson">"email"</span>: "test2@gmail.com", 
@@ -152,23 +153,28 @@
         </section>
         <div class="separador"></div> <!-- Separador de Seccion -->
 <!-- Creation User Section   + CHECK + -->
-        <section class="endpoint">
+        <section class="endpoint">            
           <div class="description">
             <h1 class="post">Create User</h1>
-            <div class="endpoint-box"> https://dominio.com/v1/auth/register</div>
+            <div class="endpoint-box"> https://dominio.com.com/v1/auth/register</div>
             <h3>Description</h3>
             <p>Endpoint Utilizado para crear un usuario en base de datos, este regresara informacion del usuario asi como el token y refresh token de la session</p>
+            <div class="double-column">
+              <h4>Authorization-token </h4>
+              <p class="pre-wraper token">eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy
+              </p>
+            </div>
             <h3>body</h3>
             <div class="codeDiv">
-              <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('tokenbeautified')"> <i class="ri-file-copy-2-fill"></i></span></div>
-              <pre class="prettyprint pre-wraper">
-      {
-        <span class="keyJson">"name"</span> :"Edgar Andres",
-        <span class="keyJson">"apellido_paterno"</span> :"Vargas",
-        <span class="keyJson">"apellido_materno"</span> :"Mora",
-        <span class="keyJson">"email"</span> :"avargas@gmail.com",
-        <span class="keyJson">"password"</span> :"1234"
-      }
+              <p>Parameters</p>
+              <pre id="CUserJson" class="prettyprint pre-wraper">
+{
+  <span class="keyJson">"name"</span> :"John",                 //nombre del usuario
+  <span class="keyJson">"apellido_paterno"</span> :"Milton",   // apellido paterno
+  <span class="keyJson">"apellido_materno"</span> :"Smith",    // apellido materno
+  <span class="keyJson">"email"</span> :"johnmilton@gmail.com",// Correo del usuario
+  <span class="keyJson">"password"</span> :"37dhhak26"         // password del usuario
+}
               </pre>
             </div>
           </div>
@@ -177,24 +183,35 @@
                 <div class="modalContainer">
                   <p>Request Example</p>
                   <div class="codeDiv">
-                    <pre class="prettyprint">
-      {       
-        <span class="keyJson">"email"</span>: "test2@gmail.com", 
-        <span class="keyJson">"password"</span>: "thisIsPassword"
-      }
-                    </pre>
+                    <div class="double-column"><h4>Request Body</h4><span class="close" onclick="CopyToClipboard('CUserJson')"> <i class="ri-file-copy-2-fill"></i></span></div>
+                    <pre id="CUserJson" class="prettyprint pre-wraper">
+{
+  <span class="keyJson">"name"</span> :"John",
+  <span class="keyJson">"apellido_paterno"</span> :"Milton",
+  <span class="keyJson">"apellido_materno"</span> :"Smith",
+  <span class="keyJson">"email"</span> :"johnmilton@gmail.com",
+  <span class="keyJson">"password"</span> :"37dhhak26"
+}
+                  </pre>
                   </div>
                 </div>
               </div>
               <div id="modalResCUser">
-                <div class="modalContainer">               
-                  <span id="btn-close" class="btn-close close" onclick="openModal('modalResToken')">&times;</span>
+                <div class="modalContainer">
                   <p>Response Example</p>
                   <div class="codeDiv">
                     <pre class="prettyprint">
 {
-  <span class="keyJson">"username"</span> : "avargas@gmail.com",
-}
+  <span class="keyJson">"id"</span> : 1052,
+  <span class="keyJson">"uuid"</span> : "7a55fac4-9e34-4f9a-a95b-c92bdb962ac5",
+  <span class="keyJson">"name"</span> : "John",
+  <span class="keyJson">"apellido_paterno"</span> : "Milton",
+  <span class="keyJson">"apellido_materno"</span> : "Smith",
+  <span class="keyJson">"email"</span> : "johnmilton@gmail.com",
+  <span class="keyJson">"rol"</span> : "OPERACIONES",
+  <span class="keyJson">"enabled"</span> : true,
+  <span class="keyJson">"username"</span> : "johnmilton@gmail.com",
+}                      
                     </pre>
                   </div>
                 </div>
@@ -206,18 +223,19 @@
         <section class="endpoint">
           <div class="description">
               <h1 class="put"> Update User </h1>
-              <div class="endpoint-box"> https://dominio.com/v1/auth/update/${uuid_user}</div>
+              <div class="endpoint-box"> https://dominio.com.com/v1/auth/update/${uuid_user}</div>
             <h3>Description</h3>
             <p> Endpoint utilizado para actualizar la informacion alojada en base de datos de un usuario, se requiere <b>Authorization Token</b> para esta operacion asi como el identificador Unico del usuario (UUID)</p>
             <h3>body</h3>
             <div class="codeDiv">
-              <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('tokenbeautified')"> <i class="ri-file-copy-2-fill"></i></span></div>
+              <p>Solo se deberan mandar los campos que se quieren actualizar asi como uuid en la url (por lo menos 1 campo)</p>
               <pre class="prettyprint pre-wraper">
 {
-  <span class="keyJson">"name"</span> :"Justin",
-  <span class="keyJson">"apellido_paterno"</span> :"Martinez",
-  <span class="keyJson">"apellido_materno"</span> :"Roa",
-  <span class="keyJson">"role"</span> : "USER",
+  <span class="keyJson">"nombre"</span> :"Justin",             // opcional
+  <span class="keyJson">"apellido_paterno"</span> :"Martinez", // opcional
+  <span class="keyJson">"apellido_materno"</span> :"Roa",      // opcional
+  <span class="keyJson">"rol"</span> : "USER",                 // opcional
+  <span class="keyJson">"email"</span> :"Justin",              // opcional
 }
               </pre>
             </div>
@@ -227,10 +245,11 @@
               <div class="modalContainer">
                 <p>Request Example</p>
                 <div class="codeDiv">
-                  <pre class="prettyprint">
+                  <div class="double-column"><h4>Request Body</h4><span class="close" onclick="CopyToClipboard('UUser')"> <i class="ri-file-copy-2-fill"></i></span></div>
+                  <pre id="UUser" class="prettyprint">
     {       
-      <span class="keyJson">"email"</span>: "test2@gmail.com", 
-      <span class="keyJson">"password"</span>: "thisIsPassword"
+      <span class="keyJson">"name"</span>: "Justin", 
+      <span class="keyJson">"apellido_paterno"</span>: "Roa"
     }
                   </pre>
                 </div>
@@ -243,7 +262,15 @@
                 <div class="codeDiv">
                   <pre class="prettyprint">
 {
-<span class="keyJson">"username"</span> : "avargas@gmail.com",
+  <span class="keyJson">"id"</span> : 1052,
+  <span class="keyJson">"uuid"</span> : "7a55fac4-9e34-4f9a-a95b-c92bdb962ac5",
+  <span class="keyJson">"nombre"</span> : "Justin",
+  <span class="keyJson">"apellido_paterno"</span> : "Roa",
+  <span class="keyJson">"apellido_materno"</span> : "Smith",
+  <span class="keyJson">"email"</span> : "johnmilton@gmail.com",
+  <span class="keyJson">"rol"</span> : "OPERACIONES",
+  <span class="keyJson">"enabled"</span> : true,
+  <span class="keyJson">"username"</span> : "johnmilton@gmail.com",
 }
                   </pre>
                 </div>
@@ -256,7 +283,7 @@
         <section class="endpoint">
           <div class="description">
               <h1 class="post">Create User</h1>
-              <div class="endpoint-box"> https://dominio.com/v1/auth/register</div>
+              <div class="endpoint-box"> https://dominio.com.com/v1/auth/register</div>
             <h3>Description</h3>
             <p>Endpoint Utilizado para crear un usuario en base de datos, este regresara informacion del usuario asi como el token y refresh token de la session</p>
             <h3>body</h3>
@@ -308,7 +335,7 @@
         <section class="endpoint">
           <div class="description">
               <h1 class="post">Create User</h1>
-              <div class="endpoint-box"> https://dominio.com/v1/auth/register</div>
+              <div class="endpoint-box"> https://dominio.com.com/v1/auth/register</div>
             <h3>Description</h3>
             <p>Endpoint Utilizado para crear un usuario en base de datos, este regresara informacion del usuario asi como el token y refresh token de la session</p>
             <h3>body</h3>
@@ -360,7 +387,7 @@
         <section class="endpoint">
           <div class="description">
               <h1 class="post">Create User</h1>
-              <div class="endpoint-box"> https://dominio.com/v1/auth/register</div>
+              <div class="endpoint-box"> https://dominio.com.com/v1/auth/register</div>
             <h3>Description</h3>
             <p>Endpoint Utilizado para crear un usuario en base de datos, este regresara informacion del usuario asi como el token y refresh token de la session</p>
             <h3>body</h3>
@@ -413,7 +440,7 @@
         <section class="endpoint">
           <div class="description">
               <h1 class="post">Create User</h1>
-              <div class="endpoint-box"> https://dominio.com/v1/auth/register</div>
+              <div class="endpoint-box"> https://dominio.com.com/v1/auth/register</div>
             <h3>Description</h3>
             <p>Endpoint Utilizado para crear un usuario en base de datos, este regresara informacion del usuario asi como el token y refresh token de la session</p>
             <h3>body</h3>
@@ -465,7 +492,7 @@
         <section class="endpoint">
           <div class="description">
               <h1 class="post">Create User</h1>
-              <div class="endpoint-box"> https://dominio.com/v1/auth/register</div>
+              <div class="endpoint-box"> https://dominio.com.com/v1/auth/register</div>
             <h3>Description</h3>
             <p>Endpoint Utilizado para crear un usuario en base de datos, este regresara informacion del usuario asi como el token y refresh token de la session</p>
             <h3>body</h3>
@@ -517,7 +544,7 @@
         <section class="endpoint">
           <div class="description">
               <h1 class="post">Create User</h1>
-              <div class="endpoint-box"> https://dominio.com/v1/auth/register</div>
+              <div class="endpoint-box"> https://dominio.com.com/v1/auth/register</div>
             <h3>Description</h3>
             <p>Endpoint Utilizado para crear un usuario en base de datos, este regresara informacion del usuario asi como el token y refresh token de la session</p>
             <h3>body</h3>
@@ -569,7 +596,7 @@
         <section class="endpoint">
           <div class="description">
               <h1 class="post">Create User</h1>
-              <div class="endpoint-box"> https://dominio.com/v1/auth/register</div>
+              <div class="endpoint-box"> https://dominio.com.com/v1/auth/register</div>
             <h3>Description</h3>
             <p>Endpoint Utilizado para crear un usuario en base de datos, este regresara informacion del usuario asi como el token y refresh token de la session</p>
             <h3>body</h3>
@@ -621,7 +648,7 @@
         <section class="endpoint">
           <div class="description">
               <h1 class="post">Create User</h1>
-              <div class="endpoint-box"> https://dominio.com/v1/auth/register</div>
+              <div class="endpoint-box"> https://dominio.com.com/v1/auth/register</div>
             <h3>Description</h3>
             <p>Endpoint Utilizado para crear un usuario en base de datos, este regresara informacion del usuario asi como el token y refresh token de la session</p>
             <h3>body</h3>
@@ -673,7 +700,7 @@
         <section class="endpoint">
           <div class="description">
               <h1 class="post">Create User</h1>
-              <div class="endpoint-box"> https://dominio.com/v1/auth/register</div>
+              <div class="endpoint-box"> https://dominio.com.com/v1/auth/register</div>
             <h3>Description</h3>
             <p>Endpoint Utilizado para crear un usuario en base de datos, este regresara informacion del usuario asi como el token y refresh token de la session</p>
             <h3>body</h3>
