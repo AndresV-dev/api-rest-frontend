@@ -67,6 +67,9 @@ h4 {
     color: var(--text-font-color);
 }
 
+strong {
+    color: var(--text-font-color);
+}
 header img{
     margin-top: .75rem;
     width: 200px;

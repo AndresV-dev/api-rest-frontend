@@ -46,7 +46,7 @@
       </nav>
       <main>
 <!-- Home Description Section  + CHECK + --> 
-        <section class="endpoint no-example">
+        <section id="home" class="endpoint no-example">
           <div class="description">
             <h1>Andres Vargas API-REST</h1>
             <p>Esta api ofrece endpoints con los cuales se puede accesar a los datos del server, brindandole al usuario diferentes operaciones y funcionalidades.</p>   
@@ -59,7 +59,7 @@
         </section>
         <div class="separador"></div> <!-- Separador de Seccion -->
 <!-- Authorization Section   + CHECK + -->
-        <section class="endpoint no-example">
+        <section id="authorization" class="no-example">
           <div class="description">
             <h1 class="title">V1</h1>
             <p>Esta es la primer versión de la Api-Rest, donde se encontraran los endpoints del Backend</p>
@@ -75,7 +75,7 @@
         </section>
         <div class="separador"></div> <!-- Separador de Seccion -->
 <!-- Token Section   + CHECK + -->
-        <section class="endpoint">
+        <section id="token">
           <div class="description">
             <h1 class="post">Token</h1>
             <div class="endpoint-box"> https://dominio.com.com/v1/auth/token</div>
@@ -117,7 +117,7 @@
           <div class="example">
             <div id="modalReqToken">
               <div class="modalContainer">
-                <p>Example Request : <strong>http://dominio.com.com/v1/authorization/token</strong></p>
+                <p>Example Request : <strong>http://dominio.com.com/v1/auth/token</strong></p>
                 <div class="codeDiv">
                   <div class="double-column"><h4>Request Body</h4><span class="close" onclick="CopyToClipboard('CToken')"> <i class="ri-file-copy-2-fill"></i></span></div>
                   <pre id="CToken" class="prettyprint">
@@ -153,7 +153,7 @@
         </section>
         <div class="separador"></div> <!-- Separador de Seccion -->
 <!-- Creation User Section   + CHECK + -->
-        <section class="endpoint">            
+        <section id="create-user">
           <div class="description">
             <h1 class="post">Create User</h1>
             <div class="endpoint-box"> https://dominio.com.com/v1/auth/register</div>
@@ -181,7 +181,7 @@
           <div class="example">
               <div id="modalReqCUser">
                 <div class="modalContainer">
-                  <p>Request Example</p>
+                  <p>Example Request : <strong>http://dominio.com.com/v1/auth/register</strong></p>
                   <div class="codeDiv">
                     <div class="double-column"><h4>Request Body</h4><span class="close" onclick="CopyToClipboard('CUserJson')"> <i class="ri-file-copy-2-fill"></i></span></div>
                     <pre id="CUserJson" class="prettyprint pre-wraper">
@@ -220,7 +220,8 @@
         </section>
         <div class="separador"></div> <!-- Separador de Seccion -->
 <!-- Users Section -->
-        <section class="endpoint">
+        <!-- UPDATE USER Section -->
+        <section id="update-user">
           <div class="description">
               <h1 class="put"> Update User </h1>
               <div class="endpoint-box"> https://dominio.com.com/v1/auth/update/${uuid_user}</div>
@@ -279,91 +280,19 @@
         </div>
         </section>
         <div class="separador"></div> <!-- Separador de Seccion -->
-        <!-- UPDATE USER Section -->
-        <section class="endpoint">
-          <div class="description">
-              <h1 class="post">Create User</h1>
-              <div class="endpoint-box"> https://dominio.com.com/v1/auth/register</div>
-            <h3>Description</h3>
-            <p>Endpoint Utilizado para crear un usuario en base de datos, este regresara informacion del usuario asi como el token y refresh token de la session</p>
-            <h3>body</h3>
-            <div class="codeDiv">
-              <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('tokenbeautified')"> <i class="ri-file-copy-2-fill"></i></span></div>
-              <pre class="prettyprint pre-wraper">
-{
-  <span class="keyJson">"name"</span> :"Edgar Andres",
-  <span class="keyJson">"apellido_paterno"</span> :"Vargas",
-  <span class="keyJson">"apellido_materno"</span> :"Mora",
-  <span class="keyJson">"email"</span> :"avargas@gmail.com",
-  <span class="keyJson">"password"</span> :"1234"
-}
-              </pre>
-            </div>
-          </div>
-          <div class="example">
-            <div id="modalReqCUser">
-              <div class="modalContainer">
-                <p>Request Example</p>
-                <div class="codeDiv">
-                  <pre class="prettyprint">
-    {       
-      <span class="keyJson">"email"</span>: "test2@gmail.com", 
-      <span class="keyJson">"password"</span>: "thisIsPassword"
-    }
-                  </pre>
-                </div>
-              </div>
-            </div>
-            <div id="modalResCUser">
-              <div class="modalContainer">               
-                <span id="btn-close" class="btn-close close" onclick="openModal('modalResToken')">&times;</span>
-                <p>Response Example</p>
-                <div class="codeDiv">
-                  <pre class="prettyprint">
-{
-<span class="keyJson">"username"</span> : "avargas@gmail.com",
-}
-                  </pre>
-                </div>
-              </div>
-            </div>
-        </div>
-          
-        </section>
-        <div class="separador"></div> <!-- Separador de Seccion -->
         <!-- DELETE User Section -->
-        <section class="endpoint">
+        <section id="delete-user">
           <div class="description">
-              <h1 class="post">Create User</h1>
-              <div class="endpoint-box"> https://dominio.com.com/v1/auth/register</div>
+              <h1 class="get">Delete User</h1>
+              <div class="endpoint-box"> https://dominio.com.com/v1/auth/delete/{uuid_user}</div>
             <h3>Description</h3>
-            <p>Endpoint Utilizado para crear un usuario en base de datos, este regresara informacion del usuario asi como el token y refresh token de la session</p>
-            <h3>body</h3>
-            <div class="codeDiv">
-              <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('tokenbeautified')"> <i class="ri-file-copy-2-fill"></i></span></div>
-              <pre class="prettyprint pre-wraper">
-{
-  <span class="keyJson">"name"</span> :"Edgar Andres",
-  <span class="keyJson">"apellido_paterno"</span> :"Vargas",
-  <span class="keyJson">"apellido_materno"</span> :"Mora",
-  <span class="keyJson">"email"</span> :"avargas@gmail.com",
-  <span class="keyJson">"password"</span> :"1234"
-}
-              </pre>
-            </div>
+            <p>Endpoint Utilizado para la eliminacion de un usuario en especifico, meidiante el identificador unico de usuario (UUID), como respuesta solo mostrara una confirmacion de la eliminacion</p>
           </div>
           <div class="example">
             <div id="modalReqCUser">
               <div class="modalContainer">
-                <p>Request Example</p>
-                <div class="codeDiv">
-                  <pre class="prettyprint">
-    {       
-      <span class="keyJson">"email"</span>: "test2@gmail.com", 
-      <span class="keyJson">"password"</span>: "thisIsPassword"
-    }
-                  </pre>
-                </div>
+                <p>Request Example </p>
+                <h4> <strong> https://dominio.com.com/v1/auth/delete/30d41f6f-4979-42ad-8c6b-7ba612cb62bf</strong></h4>
               </div>
             </div>
             <div id="modalResCUser">
@@ -373,7 +302,7 @@
                 <div class="codeDiv">
                   <pre class="prettyprint">
 {
-<span class="keyJson">"username"</span> : "avargas@gmail.com",
+  <span class="keyJson">"info" :</span> "La eliminacion del usuario a sido satisfactoria"
 }
                   </pre>
                 </div>
@@ -384,22 +313,84 @@
         </section>
         <div class="separador"></div> <!-- Separador de Seccion -->
         <!-- Get List Users Section -->
-        <section class="endpoint">
+        <section class="user-list">
           <div class="description">
-              <h1 class="post">Create User</h1>
-              <div class="endpoint-box"> https://dominio.com.com/v1/auth/register</div>
+              <h1 class="get">User List</h1>
+              <div class="endpoint-box"> https://dominio.com.com/v1/user/list?page=1&size=200</div>
             <h3>Description</h3>
-            <p>Endpoint Utilizado para crear un usuario en base de datos, este regresara informacion del usuario asi como el token y refresh token de la session</p>
+            <p>Endpoint Utilizado para la obtencion de todos los usuarios contenidos en la base de datos, mediante paginacion. Si el usuario que ejecuta el endpoint no pone estos indicativos de paginacion, el endpoint puede funcionar ya que tiene como default "<strong>?page=1&size=1000</strong>", por lo que siempre estara paginado</p>
+          </div>
+          <div class="example">
+            <div id="modalReqCUser">
+              <div class="modalContainer">
+                <p>Request Example</p>
+                <strong>https://dominio.com.com/v1/user/list?page=1&size=3</strong>
+              </div>
+            </div>
+            <div id="modalResCUser">
+              <div class="modalContainer">               
+                <span id="btn-close" class="btn-close close" onclick="openModal('modalResToken')">&times;</span>
+                <p>Response Example</p>
+                <div class="codeDiv">
+                  <pre class="prettyprint">
+{
+  <span class="keyJson">"id"</span> : 1052,
+  <span class="keyJson">"uuid"</span> : "7a55fac4-9e34-4f9a-a95b-c92bdb962ac5",
+  <span class="keyJson">"nombre"</span> : "Justin",
+  <span class="keyJson">"apellido_paterno"</span> : "Roa",
+  <span class="keyJson">"apellido_materno"</span> : "Smith",
+  <span class="keyJson">"email"</span> : "justinroa@gmail.com",
+  <span class="keyJson">"rol"</span> : "ADMIN",
+  <span class="keyJson">"enabled"</span> : true,
+  <span class="keyJson">"username"</span> : "justinroa@gmail.com",
+},
+{
+  <span class="keyJson">"id"</span> : 1053,
+  <span class="keyJson">"uuid"</span> : "30d41f6f-4979-42ad-8c6b-7ba612cb62bf",
+  <span class="keyJson">"nombre"</span> : "Mercedes",
+  <span class="keyJson">"apellido_paterno"</span> : "Villa",
+  <span class="keyJson">"apellido_materno"</span> : "Sánchez",
+  <span class="keyJson">"email"</span> : "mercedezvilla@gmail.com",
+  <span class="keyJson">"rol"</span> : "USER",
+  <span class="keyJson">"enabled"</span> : true,
+  <span class="keyJson">"username"</span> : "mercedezvilla@gmail.com",
+},
+{
+  <span class="keyJson">"id"</span> : 1054,
+  <span class="keyJson">"uuid"</span> : "9172497b-f8ac-4419-a17e-a9262dd74ceb",
+  <span class="keyJson">"nombre"</span> : "Gabriel",
+  <span class="keyJson">"apellido_paterno"</span> : "Pérez",
+  <span class="keyJson">"apellido_materno"</span> : "García",
+  <span class="keyJson">"email"</span> : "gabyperez@gmail.com",
+  <span class="keyJson">"rol"</span> : "USER",
+  <span class="keyJson">"enabled"</span> : true,
+  <span class="keyJson">"username"</span> : "gabyperez@gmail.com",
+}
+                  </pre>
+                </div>
+              </div>
+            </div>
+        </div>
+          
+        </section>
+        <div class="separador"></div> <!-- Separador de Seccion -->
+        <!-- Filtered User List Section -->
+        <section id="user-list-filtered">
+          <div class="description">
+              <h1 class="post">User Filtered List</h1>
+              <div class="endpoint-box"> https://dominio.com.com/v1/user/filtered/list</div>
+            <h3>Description</h3>
+            <p>Endpoint Utilizado para obtener registros disponibles en base de datos pero de manera filtrada por algun campo en especifico, si el usuario no agrega campos con los cuales filtrar, de retornaran registros sin filtros pero paginados, por lo que este endpoint tambien soporta paginacion</p>
             <h3>body</h3>
             <div class="codeDiv">
-              <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('tokenbeautified')"> <i class="ri-file-copy-2-fill"></i></span></div>
-              <pre class="prettyprint pre-wraper">
+              Campos con los que se puede filtrar la respuesta
+              <pre class="prettyprint pre-wraper">   
 {
-  <span class="keyJson">"name"</span> :"Edgar Andres",
-  <span class="keyJson">"apellido_paterno"</span> :"Vargas",
-  <span class="keyJson">"apellido_materno"</span> :"Mora",
-  <span class="keyJson">"email"</span> :"avargas@gmail.com",
-  <span class="keyJson">"password"</span> :"1234"
+  <span class="keyJson">"name"</span> :"Justin",
+  <span class="keyJson">"apellido_paterno"</span> :"Roa",
+  <span class="keyJson">"apellido_materno"</span> :"Martinez",
+  <span class="keyJson">"email"</span> :"test@gmail.com",
+  <span class="keyJson">"role"</span> :"USER"
 }
               </pre>
             </div>
@@ -408,12 +399,12 @@
             <div id="modalReqCUser">
               <div class="modalContainer">
                 <p>Request Example</p>
+                <strong class="post">https://dominio.com.com/v1/user/filtered/list</strong>
                 <div class="codeDiv">
                   <pre class="prettyprint">
-    {       
-      <span class="keyJson">"email"</span>: "test2@gmail.com", 
-      <span class="keyJson">"password"</span>: "thisIsPassword"
-    }
+{
+  <span class="keyJson">"apellido_paterno"</span> :"Roa"
+}                    
                   </pre>
                 </div>
               </div>
@@ -425,8 +416,16 @@
                 <div class="codeDiv">
                   <pre class="prettyprint">
 {
-<span class="keyJson">"username"</span> : "avargas@gmail.com",
-}
+  <span class="keyJson">"id"</span> : 1052,
+  <span class="keyJson">"uuid"</span> : "7a55fac4-9e34-4f9a-a95b-c92bdb962ac5",
+  <span class="keyJson">"nombre"</span> : "Justin",
+  <span class="keyJson">"apellido_paterno"</span> : "Roa",
+  <span class="keyJson">"apellido_materno"</span> : "Smith",
+  <span class="keyJson">"email"</span> : "justinroa@gmail.com",
+  <span class="keyJson">"rol"</span> : "ADMIN",
+  <span class="keyJson">"enabled"</span> : true,
+  <span class="keyJson">"username"</span> : "justinroa@gmail.com",
+},
                   </pre>
                 </div>
               </div>
@@ -434,41 +433,20 @@
         </div>
           
         </section>
-        <div class="separador"></div> <!-- Separador de Seccion -->
         <!-- Store Items Section -->
-        <!-- Items List Section -->
-        <section class="endpoint">
+        <!-- Get Store Items List Section -->
+        <section class="store-item-list">
           <div class="description">
-              <h1 class="post">Create User</h1>
-              <div class="endpoint-box"> https://dominio.com.com/v1/auth/register</div>
+              <h1 class="get">Store Item List</h1>
+              <div class="endpoint-box"> https://dominio.com.com/v1/store/item/list?page=1&size=200</div>
             <h3>Description</h3>
-            <p>Endpoint Utilizado para crear un usuario en base de datos, este regresara informacion del usuario asi como el token y refresh token de la session</p>
-            <h3>body</h3>
-            <div class="codeDiv">
-              <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('tokenbeautified')"> <i class="ri-file-copy-2-fill"></i></span></div>
-              <pre class="prettyprint pre-wraper">
-{
-  <span class="keyJson">"name"</span> :"Edgar Andres",
-  <span class="keyJson">"apellido_paterno"</span> :"Vargas",
-  <span class="keyJson">"apellido_materno"</span> :"Mora",
-  <span class="keyJson">"email"</span> :"avargas@gmail.com",
-  <span class="keyJson">"password"</span> :"1234"
-}
-              </pre>
-            </div>
+            <p>Endpoint Utilizado para la obtencion de todos los Items o productos contenidos en la base de datos, mediante paginacion. Si el usuario que ejecuta el endpoint no pone estos indicativos de paginacion, el endpoint puede funcionar ya que tiene como default "<strong>?page=1&size=1000</strong>", por lo que siempre estara paginado</p>
           </div>
           <div class="example">
             <div id="modalReqCUser">
               <div class="modalContainer">
                 <p>Request Example</p>
-                <div class="codeDiv">
-                  <pre class="prettyprint">
-    {       
-      <span class="keyJson">"email"</span>: "test2@gmail.com", 
-      <span class="keyJson">"password"</span>: "thisIsPassword"
-    }
-                  </pre>
-                </div>
+                <strong>https://dominio.com.com/v1/store/item/list?page=1&size=3</strong>
               </div>
             </div>
             <div id="modalResCUser">
@@ -477,9 +455,33 @@
                 <p>Response Example</p>
                 <div class="codeDiv">
                   <pre class="prettyprint">
-{
-<span class="keyJson">"username"</span> : "avargas@gmail.com",
-}
+  {
+  <span class="keyJson">"id"</span> : 897,
+  <span class="keyJson">"uuid"</span> : "4b69075f-d7df-42fb-b05e-69056424806a",
+  <span class="keyJson">"nombre"</span> : "GOD OF WAR",
+  <span class="keyJson">"price"</span> : "$ 34.00",
+  <span class="keyJson">"discount"</span> : false,
+  <span class="keyJson">"store_id"</span> : 321,
+  <span class="keyJson">"count"</span> : 12
+  },
+  {
+    <span class="keyJson">"id"</span> : 898,
+    <span class="keyJson">"uuid"</span> : "ee3b274e-949d-48c2-a4a3-21c216a39397",
+    <span class="keyJson">"nombre"</span> : "Just Dance",
+    <span class="keyJson">"price"</span> : "$ 34.00",
+    <span class="keyJson">"discount"</span> : true,
+    <span class="keyJson">"store_id"</span> : 321,
+    <span class="keyJson">"count"</span> : 16
+  },
+  {
+    <span class="keyJson">"id"</span> : 899,
+    <span class="keyJson">"uuid"</span> : "c746c1f0-d965-43c1-b578-658d6c79ebcb",
+    <span class="keyJson">"nombre"</span> : "Animal Crossing",
+    <span class="keyJson">"price"</span> : "$ 19.99",
+    <span class="keyJson">"discount"</span> : false,
+    <span class="keyJson">"store_id"</span> : 321,
+    <span class="keyJson">"count"</span> : 32
+    },
                   </pre>
                 </div>
               </div>
@@ -488,24 +490,26 @@
           
         </section>
         <div class="separador"></div> <!-- Separador de Seccion -->
-        <!-- Filtered List Section -->
-        <section class="endpoint">
+        <!-- Filtered Store Items List Section -->
+        <section id="store-item-list-filtered">
           <div class="description">
-              <h1 class="post">Create User</h1>
-              <div class="endpoint-box"> https://dominio.com.com/v1/auth/register</div>
+              <h1 class="post">User Filtered List</h1>
+              <div class="endpoint-box"> https://dominio.com.com/v1/user/filtered/list</div>
             <h3>Description</h3>
-            <p>Endpoint Utilizado para crear un usuario en base de datos, este regresara informacion del usuario asi como el token y refresh token de la session</p>
+            <p>Endpoint Utilizado para obtener registros disponibles en base de datos pero de manera filtrada por algun campo en especifico, si el usuario no agrega campos con los cuales filtrar, de retornaran registros sin filtros pero paginados, por lo que este endpoint tambien soporta paginacion</p>
             <h3>body</h3>
             <div class="codeDiv">
-              <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('tokenbeautified')"> <i class="ri-file-copy-2-fill"></i></span></div>
-              <pre class="prettyprint pre-wraper">
-{
-  <span class="keyJson">"name"</span> :"Edgar Andres",
-  <span class="keyJson">"apellido_paterno"</span> :"Vargas",
-  <span class="keyJson">"apellido_materno"</span> :"Mora",
-  <span class="keyJson">"email"</span> :"avargas@gmail.com",
-  <span class="keyJson">"password"</span> :"1234"
-}
+              Campos con los que se puede filtrar la respuesta
+              <pre class="prettyprint pre-wraper">   
+  {
+    <span class="keyJson">"id"</span> : 897,
+    <span class="keyJson">"uuid"</span> : "4b69075f-d7df-42fb-b05e-69056424806a",
+    <span class="keyJson">"nombre"</span> : "GOD OF WAR",
+    <span class="keyJson">"price"</span> : 34,
+    <span class="keyJson">"discount"</span> : false,
+    <span class="keyJson">"store_id"</span> : 321,
+    <span class="keyJson">"count"</span> : 12
+  }
               </pre>
             </div>
           </div>
@@ -513,12 +517,12 @@
             <div id="modalReqCUser">
               <div class="modalContainer">
                 <p>Request Example</p>
+                <strong class="post">https://dominio.com.com/v1/store/item/filtered/list</strong>
                 <div class="codeDiv">
                   <pre class="prettyprint">
-    {       
-      <span class="keyJson">"email"</span>: "test2@gmail.com", 
-      <span class="keyJson">"password"</span>: "thisIsPassword"
-    }
+{
+  <span class="keyJson">"price": </span>34
+}                 
                   </pre>
                 </div>
               </div>
@@ -530,75 +534,37 @@
                 <div class="codeDiv">
                   <pre class="prettyprint">
 {
-<span class="keyJson">"username"</span> : "avargas@gmail.com",
-}
+  <span class="keyJson">"id"</span> : 897,
+  <span class="keyJson">"uuid"</span> : "4b69075f-d7df-42fb-b05e-69056424806a",
+  <span class="keyJson">"nombre"</span> : "GOD OF WAR",
+  <span class="keyJson">"price"</span> : "$ 34.00",
+  <span class="keyJson">"discount"</span> : false,
+  <span class="keyJson">"store_id"</span> : 321,
+  <span class="keyJson">"count"</span> : 12
+  },
+  {
+    <span class="keyJson">"id"</span> : 898,
+    <span class="keyJson">"uuid"</span> : "ee3b274e-949d-48c2-a4a3-21c216a39397",
+    <span class="keyJson">"nombre"</span> : "Just Dance",
+    <span class="keyJson">"price"</span> : "$ 34.00",
+    <span class="keyJson">"discount"</span> : true,
+    <span class="keyJson">"store_id"</span> : 321,
+    <span class="keyJson">"count"</span> : 16
+  }
                   </pre>
                 </div>
               </div>
             </div>
         </div>
-          
-        </section>
-        <div class="separador"></div> <!-- Separador de Seccion -->
-        <!-- Filtered List Section -->
-        <section class="endpoint">
-          <div class="description">
-              <h1 class="post">Create User</h1>
-              <div class="endpoint-box"> https://dominio.com.com/v1/auth/register</div>
-            <h3>Description</h3>
-            <p>Endpoint Utilizado para crear un usuario en base de datos, este regresara informacion del usuario asi como el token y refresh token de la session</p>
-            <h3>body</h3>
-            <div class="codeDiv">
-              <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('tokenbeautified')"> <i class="ri-file-copy-2-fill"></i></span></div>
-              <pre class="prettyprint pre-wraper">
-{
-  <span class="keyJson">"name"</span> :"Edgar Andres",
-  <span class="keyJson">"apellido_paterno"</span> :"Vargas",
-  <span class="keyJson">"apellido_materno"</span> :"Mora",
-  <span class="keyJson">"email"</span> :"avargas@gmail.com",
-  <span class="keyJson">"password"</span> :"1234"
-}
-              </pre>
-            </div>
-          </div>
-          <div class="example">
-            <div id="modalReqCUser">
-              <div class="modalContainer">
-                <p>Request Example</p>
-                <div class="codeDiv">
-                  <pre class="prettyprint">
-    {       
-      <span class="keyJson">"email"</span>: "test2@gmail.com", 
-      <span class="keyJson">"password"</span>: "thisIsPassword"
-    }
-                  </pre>
-                </div>
-              </div>
-            </div>
-            <div id="modalResCUser">
-              <div class="modalContainer">               
-                <span id="btn-close" class="btn-close close" onclick="openModal('modalResToken')">&times;</span>
-                <p>Response Example</p>
-                <div class="codeDiv">
-                  <pre class="prettyprint">
-{
-<span class="keyJson">"username"</span> : "avargas@gmail.com",
-}
-                  </pre>
-                </div>
-              </div>
-            </div>
-        </div>
-          
         </section>
         <div class="separador"></div> <!-- Separador de Seccion -->
       <!-- Create New Item Section -->
-        <section class="endpoint">
+        <section id="create-store-item" >
           <div class="description">
               <h1 class="post">Create User</h1>
               <div class="endpoint-box"> https://dominio.com.com/v1/auth/register</div>
             <h3>Description</h3>
-            <p>Endpoint Utilizado para crear un usuario en base de datos, este regresara informacion del usuario asi como el token y refresh token de la session</p>
+            <p>Endpoint Utilizado para crear un item perteneciente a una store</p>
             <h3>body</h3>
             <div class="codeDiv">
               <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('tokenbeautified')"> <i class="ri-file-copy-2-fill"></i></span></div>
@@ -645,7 +611,7 @@
         </section>
         <div class="separador"></div> <!-- Separador de Seccion -->
         <!-- Generate URL Payment Section -->
-        <section class="endpoint">
+        <section id="generate-url-payment">
           <div class="description">
               <h1 class="post">Create User</h1>
               <div class="endpoint-box"> https://dominio.com.com/v1/auth/register</div>
@@ -697,7 +663,7 @@
         </section>
         <div class="separador"></div> <!-- Separador de Seccion -->
         <!-- Validate Payment Section -->
-        <section class="endpoint">
+        <section id="validate-url-payment">
           <div class="description">
               <h1 class="post">Create User</h1>
               <div class="endpoint-box"> https://dominio.com.com/v1/auth/register</div>
