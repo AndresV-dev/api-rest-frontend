@@ -433,6 +433,7 @@
         </div>
           
         </section>
+        <div class="separador"></div> <!-- Separador de Seccion -->
         <!-- Store Items Section -->
         <!-- Get Store Items List Section -->
         <section class="store-item-list">
@@ -493,10 +494,10 @@
         <!-- Filtered Store Items List Section -->
         <section id="store-item-list-filtered">
           <div class="description">
-              <h1 class="post">User Filtered List</h1>
-              <div class="endpoint-box"> https://dominio.com.com/v1/user/filtered/list</div>
+              <h1 class="post">Store Item Filtered List</h1>
+              <div class="endpoint-box"> https://dominio.com.com/v1/store/item/filtered/list</div>
             <h3>Description</h3>
-            <p>Endpoint Utilizado para obtener registros disponibles en base de datos pero de manera filtrada por algun campo en especifico, si el usuario no agrega campos con los cuales filtrar, de retornaran registros sin filtros pero paginados, por lo que este endpoint tambien soporta paginacion</p>
+            <p>Endpoint Utilizado para obtener los preductos disponibles en base de datos pero de manera filtrada por algun campo en especifico, si el usuario no agrega campos con los cuales filtrar, de retornaran registros sin filtros pero paginados.</p>
             <h3>body</h3>
             <div class="codeDiv">
               Campos con los que se puede filtrar la respuesta
@@ -562,19 +563,19 @@
         <section id="create-store-item" >
           <div class="description">
               <h1 class="post">Create User</h1>
-              <div class="endpoint-box"> https://dominio.com.com/v1/auth/register</div>
+              <div class="endpoint-box"> https://dominio.com.com/v1/store/item/create</div>
             <h3>Description</h3>
             <p>Endpoint Utilizado para crear un item perteneciente a una store</p>
             <h3>body</h3>
             <div class="codeDiv">
-              <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('tokenbeautified')"> <i class="ri-file-copy-2-fill"></i></span></div>
               <pre class="prettyprint pre-wraper">
+      //info about the game to insert into database
 {
-  <span class="keyJson">"name"</span> :"Edgar Andres",
-  <span class="keyJson">"apellido_paterno"</span> :"Vargas",
-  <span class="keyJson">"apellido_materno"</span> :"Mora",
-  <span class="keyJson">"email"</span> :"avargas@gmail.com",
-  <span class="keyJson">"password"</span> :"1234"
+  <span class="keyJson">"nombre"</span> : "Need For Speed", // Name 
+  <span class="keyJson">"price"</span> : 28,                // price 
+  <span class="keyJson">"discount"</span> : false,          // is in discount
+  <span class="keyJson">"store_id"</span> : 320,            // store_id
+  <span class="keyJson">"count"</span> : 10                 // amount of games
 }
               </pre>
             </div>
@@ -583,12 +584,16 @@
             <div id="modalReqCUser">
               <div class="modalContainer">
                 <p>Request Example</p>
+                <strong class="post">https://dominio.com.com/v1/store/item/create</strong>
                 <div class="codeDiv">
                   <pre class="prettyprint">
-    {       
-      <span class="keyJson">"email"</span>: "test2@gmail.com", 
-      <span class="keyJson">"password"</span>: "thisIsPassword"
-    }
+{
+  <span class="keyJson">"nombre"</span> : "Need For Speed",
+  <span class="keyJson">"price"</span> : 28,               
+  <span class="keyJson">"discount"</span> : false,        
+  <span class="keyJson">"store_id"</span> : 320,           
+  <span class="keyJson">"count"</span> : 10                 
+}
                   </pre>
                 </div>
               </div>
@@ -600,33 +605,36 @@
                 <div class="codeDiv">
                   <pre class="prettyprint">
 {
-<span class="keyJson">"username"</span> : "avargas@gmail.com",
+  <span class="keyJson">"info"</span> : "Game Saved Successfully",
+  <span class="keyJson">"data"</span> : {
+      <span class="keyJson">"nombre"</span> : "Need For Speed",
+      <span class="keyJson">"price"</span> : 28,               
+      <span class="keyJson">"discount"</span> : false,        
+      <span class="keyJson">"store_id"</span> : 320,           
+      <span class="keyJson">"count"</span> : 10                 
+  }
 }
                   </pre>
                 </div>
               </div>
             </div>
         </div>
-          
         </section>
         <div class="separador"></div> <!-- Separador de Seccion -->
         <!-- Generate URL Payment Section -->
         <section id="generate-url-payment">
           <div class="description">
-              <h1 class="post">Create User</h1>
-              <div class="endpoint-box"> https://dominio.com.com/v1/auth/register</div>
+              <h1 class="post">Generate URL Payment</h1>
+              <div class="endpoint-box"> https://dominio.com.com/v1/payment/url/generate</div>
             <h3>Description</h3>
-            <p>Endpoint Utilizado para crear un usuario en base de datos, este regresara informacion del usuario asi como el token y refresh token de la session</p>
+            <p>Endpoint Utilizado para Generar la url del pago a partir de los productos contenientes en el carrito de compras</p>
             <h3>body</h3>
             <div class="codeDiv">
               <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('tokenbeautified')"> <i class="ri-file-copy-2-fill"></i></span></div>
               <pre class="prettyprint pre-wraper">
 {
-  <span class="keyJson">"name"</span> :"Edgar Andres",
-  <span class="keyJson">"apellido_paterno"</span> :"Vargas",
-  <span class="keyJson">"apellido_materno"</span> :"Mora",
-  <span class="keyJson">"email"</span> :"avargas@gmail.com",
-  <span class="keyJson">"password"</span> :"1234"
+  <span class="keyJson">"user_uuid"</span> : "cc4495a9-3e54-477f-a306-8aebae3b7ffd",
+  <span class="keyJson">"total"</span> : 289.45
 }
               </pre>
             </div>
@@ -635,12 +643,13 @@
             <div id="modalReqCUser">
               <div class="modalContainer">
                 <p>Request Example</p>
+                <strong class="post">https://dominio.com.com/v1/payment/url/generate</strong>
                 <div class="codeDiv">
                   <pre class="prettyprint">
-    {       
-      <span class="keyJson">"email"</span>: "test2@gmail.com", 
-      <span class="keyJson">"password"</span>: "thisIsPassword"
-    }
+{
+  <span class="keyJson">"user_uuid"</span> : "cc4495a9-3e54-477f-a306-8aebae3b7ffd",
+  <span class="keyJson">"total"</span> : 289.45
+}
                   </pre>
                 </div>
               </div>
@@ -652,7 +661,8 @@
                 <div class="codeDiv">
                   <pre class="prettyprint">
 {
-<span class="keyJson">"username"</span> : "avargas@gmail.com",
+<span class="keyJson">"payment_id"</span> : "55f3a57d-760b-4fda-bda8-e4e7e0e8423e",
+<span class="keyJson">"url_payment"</span> : "https://payment.dominio.com/?token=eyJlbWFpbCI6InFpcWUtMTIzQGdtYWlsLmNvbSKD1mJ1c2luZXNzIjoiY29jaGVzZWd1cm8iLCJpbnN1cmFuY2UiOiJtYXBmcmUiLCJwYXltZW50SWQiOiJya041cGJBYW9Cc2JYV0ZIOW1YZyIsInRyYWNraW5HY1lkIjoiMDBjZDY0YTEtOGRmNS00NGRiLTliM2QtZjRjMzRiMzViOTZiIiwiZW1pc3Npb25faWQiOiJ6MW9FQ2c1RDNEY09HTjlpQnBDNiJ9"
 }
                   </pre>
                 </div>
@@ -665,8 +675,8 @@
         <!-- Validate Payment Section -->
         <section id="validate-url-payment">
           <div class="description">
-              <h1 class="post">Create User</h1>
-              <div class="endpoint-box"> https://dominio.com.com/v1/auth/register</div>
+              <h1 class="post">Validate Url Payment</h1>
+              <div class="endpoint-box"> https://dominio.com.com/v1/payment/url/validate</div>
             <h3>Description</h3>
             <p>Endpoint Utilizado para crear un usuario en base de datos, este regresara informacion del usuario asi como el token y refresh token de la session</p>
             <h3>body</h3>
@@ -674,11 +684,7 @@
               <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('tokenbeautified')"> <i class="ri-file-copy-2-fill"></i></span></div>
               <pre class="prettyprint pre-wraper">
 {
-  <span class="keyJson">"name"</span> :"Edgar Andres",
-  <span class="keyJson">"apellido_paterno"</span> :"Vargas",
-  <span class="keyJson">"apellido_materno"</span> :"Mora",
-  <span class="keyJson">"email"</span> :"avargas@gmail.com",
-  <span class="keyJson">"password"</span> :"1234"
+  <span class="keyJson">"payment_id"</span>: "55f3a57d-760b-4fda-bda8-e4e7e0e8423e"
 }
               </pre>
             </div>
@@ -687,12 +693,12 @@
             <div id="modalReqCUser">
               <div class="modalContainer">
                 <p>Request Example</p>
+                <strong class="post">https://dominio.com.com/v1/payment/url/validate</strong>
                 <div class="codeDiv">
                   <pre class="prettyprint">
-    {       
-      <span class="keyJson">"email"</span>: "test2@gmail.com", 
-      <span class="keyJson">"password"</span>: "thisIsPassword"
-    }
+{
+  <span class="keyJson">"payment_id"</span>: "55f3a57d-760b-4fda-bda8-e4e7e0e8423e"
+}
                   </pre>
                 </div>
               </div>
@@ -704,7 +710,9 @@
                 <div class="codeDiv">
                   <pre class="prettyprint">
 {
-<span class="keyJson">"username"</span> : "avargas@gmail.com",
+  <span class="keyJson">"payment_id"</span> : "avargas@gmail.com",
+  <span class="keyJson">"is_payed"</span> : true
+  <span class="keyJson">"payment_date"</span> : "2024-01-12 15:34:12"
 }
                   </pre>
                 </div>
