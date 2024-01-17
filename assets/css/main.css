@@ -110,13 +110,14 @@ nav h3 {
     color: var(--title-font-color);
     font-size: 1rem;
 }
-.dropdown-container a {
+.dropdown-container .link {
     position: relative;
     padding-bottom: 0.5rem;
+    cursor: pointer;
     color: var(--text-font-color);
 }
 
-.dropdown-container a::after {
+.dropdown-container .link::after {
     content: "";
     position: absolute;
     height: 1px;
@@ -126,10 +127,10 @@ nav h3 {
     background-color: var(--details-color);
     transition: all 0.3s ease;
 }
-.dropdown-container a:hover::after {
+.dropdown-container .link:hover::after {
     width: 100%;
 }
-.dropdown-container a:hover {
+.dropdown-container .link:hover {
     color: var(--details-color);
 }
 
@@ -139,6 +140,7 @@ section {
     gap: 2rem;
     margin: 2rem 1rem;    
     white-space: pre-line;
+    scroll-margin: 7.5rem;
 }
 .separador {
     position: static;
@@ -280,7 +282,7 @@ section p, span {
     color: #e6a014;
 }
 .delete::before {
-    content: "DEL ";
+    content: "DELETE ";
     font-size: var(--method-font-size);
     vertical-align: middle;
     padding-right: .2rem;

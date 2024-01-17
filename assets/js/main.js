@@ -3,11 +3,17 @@ function showDropdown(id) {
   }
 
   function openModal(modalId){
-    document.getElementById(modalId).classList.toggle("modal");
-    document.getElementById("btn-close").classList.toggle("btn-close");
-    document.getElementById("btn-modal").classList.toggle("btn-close");
-    document.getElementById("pre-resp").classList.toggle("pre-wraper");
-    document.getElementById("modalCodeDiv").classList.toggle("max-height");
+    var modal = document.getElementById(modalId);
+    modal.classList.toggle("modal");
+    console.log(modal.childNodes)
+    var modalContainer = modal.childNodes.item(1);
+    console.log(modalContainer.childNodes)
+    modalContainer.childNodes.item(0).nextSibling.classList.toggle("btn-close")
+    var codeDiv = modalContainer.childNodes.item(5);
+    console.log(codeDiv.childNodes);
+    codeDiv.childNodes.item(1).classList.toggle("pre-wraper")
+    codeDiv.childNodes.item(3).classList.toggle("btn-close")
+    
     document.body.classList.toggle("no-scroll");
   }
 
@@ -20,3 +26,20 @@ function showDropdown(id) {
       document.execCommand("copy");
       textArea.remove();
     }
+
+  function scrollToElement(elementSelector, instance = 0){
+  //select all elements that match the given selector
+    const elements = document.querySelectorAll(elementSelector)
+    // check if there are elements match in the selector and if the requested instanse existe
+    if(elements.length >instance){
+        // Scroll to the specified instance of the element
+        elements[instance].scrollIntoView({ behavior: 'smooth'})
+    }
+  }
+  
+  function functionaa(nameSection){
+    var section = document.getElementById(nameSection);
+    console.log(section)
+    section.scrollIntoView();
+  }
+

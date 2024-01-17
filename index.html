@@ -15,38 +15,38 @@
     </header>
     <div class="body-container">
       <nav>
-        <h3>Lista de Endpoints</h3>
         <div class="btn-dropdown" onclick="showDropdown('v1')"><i class="ri-arrow-down-s-fill"></i><i class="ri-folder-5-line"></i> V1</div>
         <div id="v1" class="lowlevel-dropdown show">
           <div class="btn-dropdown" onclick="showDropdown('authorization')"><i class="ri-arrow-down-s-fill"></i><i class="ri-folder-5-line"></i> Authorization</div>
           <div id="authorization" class="dropdown-container">
-            <a class="get" href="#">Token</a>
-            <a class="post" href="#"> Create User</a>
+            <div class="get link" onclick="functionaa('token')">Token</div>
+            <div class="post link" onclick="functionaa('create-user')"> Create User</div>
           </div>
           <div class="btn-dropdown" onclick="showDropdown('users')"><i class="ri-arrow-down-s-fill"></i><i class="ri-folder-5-line"></i> Users</div>
           <div id="users" class="dropdown-container">
             <div class="btn-dropdown"onclick="showDropdown('crud')"><i class="ri-arrow-down-s-fill"></i><i class="ri-folder-5-line"></i> CRUD User</div>
             <div id="crud" class="lowlevel-dropdown dropdown-container">
-              <a class="post" href="#"> Update User</a>
-              <a class="delete" href="#"> Delete Users</a>
+              <div class="post link" onclick="functionaa('update-user')"> Update User</div>
+              <div class="delete link" onclick="functionaa('delete-user')"> Delete Users</div>
             </div>
-            <a class="get" href="#">Get List Users</a>
+            <div class="get link" onclick="functionaa('user-list')">List Users</div>
+            <div class="post link" onclick="functionaa('user-list-filtered')">Filtered List Users</div>
           </div>
           <div class="btn-dropdown" onclick="showDropdown('items')"><i class="ri-arrow-down-s-fill"></i><i class="ri-folder-5-line"></i> Store Items</div>
           <div id="items" class="dropdown-container">
-            <a class="get" href="#">Items List</a>
-            <a class="post" href="#">Filtered List</a>
-            <a class="post" href="#">Create Item</a>
+            <div class="get link" onclick="functionaa('store-item-list')">Items List</div>
+            <div class="post link" onclick="functionaa('store-item-list-filtered')">Filtered List</div>
+            <div id="create-item" class="post link" onclick="functionaa('create-store-item')">Create Item</div>
           </div>
           <div class="btn-dropdown" onclick="showDropdown('payment')"><i class="ri-arrow-down-s-fill"></i><i class="ri-folder-5-line"></i> Payment</div>
           <div id="payment" class="dropdown-container">
-            <a class="post" href="#">Url Payment</a>
-            <a class="post" href="#">Validate Payment</a>
+            <div class="post link" onclick="functionaa('generate-url-payment')">Url Payment</div>
+            <div class="post link" onclick="functionaa('validate-url-payment')">Validate Payment</div>
         </div>
       </nav>
       <main>
 <!-- Home Description Section  + CHECK + --> 
-        <section id="home" class="endpoint no-example">
+        <section id="home" class="home endpoint no-example">
           <div class="description">
             <h1>Andres Vargas API-REST</h1>
             <p>Esta api ofrece endpoints con los cuales se puede accesar a los datos del server, brindandole al usuario diferentes operaciones y funcionalidades.</p>   
@@ -59,7 +59,7 @@
         </section>
         <div class="separador"></div> <!-- Separador de Seccion -->
 <!-- Authorization Section   + CHECK + -->
-        <section id="authorization" class="no-example">
+        <section id="authorization" class="authorization no-example">
           <div class="description">
             <h1 class="title">V1</h1>
             <p>Esta es la primer versión de la Api-Rest, donde se encontraran los endpoints del Backend</p>
@@ -117,7 +117,8 @@
           <div class="example">
             <div id="modalReqToken">
               <div class="modalContainer">
-                <p>Example Request : <strong>http://dominio.com.com/v1/auth/token</strong></p>
+                <p>Example Request </p>
+                <strong class="post">http://dominio.com.com/v1/auth/token</strong>
                 <div class="codeDiv">
                   <div class="double-column"><h4>Request Body</h4><span class="close" onclick="CopyToClipboard('CToken')"> <i class="ri-file-copy-2-fill"></i></span></div>
                   <pre id="CToken" class="prettyprint">
@@ -130,7 +131,7 @@
                 </div>
               </div>
             </div>
-            <div id="modalResToken"> <!--div to contain the Modal-->
+            <div id="modalResToken">
               <div class="modalContainer">
                 <span id="btn-close" class="btn-close close" onclick="openModal('modalResToken')">&times;</span>
                 <p>Example Response</p>
@@ -181,7 +182,8 @@
           <div class="example">
               <div id="modalReqCUser">
                 <div class="modalContainer">
-                  <p>Example Request : <strong>http://dominio.com.com/v1/auth/register</strong></p>
+                  <p>Example Request </p>
+                  <strong class="post">http://dominio.com.com/v1/auth/register</strong>
                   <div class="codeDiv">
                     <div class="double-column"><h4>Request Body</h4><span class="close" onclick="CopyToClipboard('CUserJson')"> <i class="ri-file-copy-2-fill"></i></span></div>
                     <pre id="CUserJson" class="prettyprint pre-wraper">
@@ -227,6 +229,11 @@
               <div class="endpoint-box"> https://dominio.com.com/v1/auth/update/${uuid_user}</div>
             <h3>Description</h3>
             <p> Endpoint utilizado para actualizar la informacion alojada en base de datos de un usuario, se requiere <b>Authorization Token</b> para esta operacion asi como el identificador Unico del usuario (UUID)</p>
+            <div class="double-column">
+              <h4>Authorization-token </h4>
+              <p class="pre-wraper token">eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy
+              </p>
+            </div>
             <h3>body</h3>
             <div class="codeDiv">
               <p>Solo se deberan mandar los campos que se quieren actualizar asi como uuid en la url (por lo menos 1 campo)</p>
@@ -245,6 +252,7 @@
             <div id="modalReqCUser">
               <div class="modalContainer">
                 <p>Request Example</p>
+                <strong class="put">https://dominio.com.com/v1/auth/update/${uuid_user}</strong>
                 <div class="codeDiv">
                   <div class="double-column"><h4>Request Body</h4><span class="close" onclick="CopyToClipboard('UUser')"> <i class="ri-file-copy-2-fill"></i></span></div>
                   <pre id="UUser" class="prettyprint">
@@ -283,16 +291,21 @@
         <!-- DELETE User Section -->
         <section id="delete-user">
           <div class="description">
-              <h1 class="get">Delete User</h1>
+              <h1 class="delete">Delete User</h1>
               <div class="endpoint-box"> https://dominio.com.com/v1/auth/delete/{uuid_user}</div>
             <h3>Description</h3>
             <p>Endpoint Utilizado para la eliminacion de un usuario en especifico, meidiante el identificador unico de usuario (UUID), como respuesta solo mostrara una confirmacion de la eliminacion</p>
+            <div class="double-column">
+              <h4>Authorization-token </h4>
+              <p class="pre-wraper token">eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy
+              </p>
+            </div>
           </div>
           <div class="example">
             <div id="modalReqCUser">
               <div class="modalContainer">
                 <p>Request Example </p>
-                <h4> <strong> https://dominio.com.com/v1/auth/delete/30d41f6f-4979-42ad-8c6b-7ba612cb62bf</strong></h4>
+                <strong class="delete"> https://dominio.com.com/v1/auth/delete/30d41f6f-4979-42ad-8c6b-7ba612cb62bf</strong>
               </div>
             </div>
             <div id="modalResCUser">
@@ -313,23 +326,28 @@
         </section>
         <div class="separador"></div> <!-- Separador de Seccion -->
         <!-- Get List Users Section -->
-        <section class="user-list">
+        <section id="user-list">
           <div class="description">
               <h1 class="get">User List</h1>
               <div class="endpoint-box"> https://dominio.com.com/v1/user/list?page=1&size=200</div>
             <h3>Description</h3>
             <p>Endpoint Utilizado para la obtencion de todos los usuarios contenidos en la base de datos, mediante paginacion. Si el usuario que ejecuta el endpoint no pone estos indicativos de paginacion, el endpoint puede funcionar ya que tiene como default "<strong>?page=1&size=1000</strong>", por lo que siempre estara paginado</p>
+            <div class="double-column">
+              <h4>Authorization-token </h4>
+              <p class="pre-wraper token">eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy
+              </p>
+            </div>
           </div>
           <div class="example">
             <div id="modalReqCUser">
               <div class="modalContainer">
                 <p>Request Example</p>
-                <strong>https://dominio.com.com/v1/user/list?page=1&size=3</strong>
+                <strong class="get">https://dominio.com.com/v1/user/list?page=1&size=3</strong>
               </div>
             </div>
             <div id="modalResCUser">
               <div class="modalContainer">               
-                <span id="btn-close" class="btn-close close" onclick="openModal('modalResToken')">&times;</span>
+                <span id="btn-close" class="btn-close close" onclick="openModal('modalResCUser')">&times;</span>
                 <p>Response Example</p>
                 <div class="codeDiv">
                   <pre class="prettyprint">
@@ -367,6 +385,7 @@
   <span class="keyJson">"username"</span> : "gabyperez@gmail.com",
 }
                   </pre>
+                  <button id="btn-modal" class="btn-view-more" onclick="openModal('modalResStoreItemList')">view more</button>
                 </div>
               </div>
             </div>
@@ -381,6 +400,11 @@
               <div class="endpoint-box"> https://dominio.com.com/v1/user/filtered/list</div>
             <h3>Description</h3>
             <p>Endpoint Utilizado para obtener registros disponibles en base de datos pero de manera filtrada por algun campo en especifico, si el usuario no agrega campos con los cuales filtrar, de retornaran registros sin filtros pero paginados, por lo que este endpoint tambien soporta paginacion</p>
+            <div class="double-column">
+              <h4>Authorization-token </h4>
+              <p class="pre-wraper token">eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy
+              </p>
+            </div>
             <h3>body</h3>
             <div class="codeDiv">
               Campos con los que se puede filtrar la respuesta
@@ -401,6 +425,7 @@
                 <p>Request Example</p>
                 <strong class="post">https://dominio.com.com/v1/user/filtered/list</strong>
                 <div class="codeDiv">
+                  <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('filt-list-item-pre')"> <i class="ri-file-copy-2-fill"></i></span></div>
                   <pre class="prettyprint">
 {
   <span class="keyJson">"apellido_paterno"</span> :"Roa"
@@ -436,34 +461,39 @@
         <div class="separador"></div> <!-- Separador de Seccion -->
         <!-- Store Items Section -->
         <!-- Get Store Items List Section -->
-        <section class="store-item-list">
+        <section id="store-item-list">
           <div class="description">
               <h1 class="get">Store Item List</h1>
               <div class="endpoint-box"> https://dominio.com.com/v1/store/item/list?page=1&size=200</div>
             <h3>Description</h3>
             <p>Endpoint Utilizado para la obtencion de todos los Items o productos contenidos en la base de datos, mediante paginacion. Si el usuario que ejecuta el endpoint no pone estos indicativos de paginacion, el endpoint puede funcionar ya que tiene como default "<strong>?page=1&size=1000</strong>", por lo que siempre estara paginado</p>
+            <div class="double-column">
+              <h4>Authorization-token </h4>
+              <p class="pre-wraper token">eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy
+              </p>
+            </div>
           </div>
           <div class="example">
             <div id="modalReqCUser">
               <div class="modalContainer">
                 <p>Request Example</p>
-                <strong>https://dominio.com.com/v1/store/item/list?page=1&size=3</strong>
+                <strong class="get">https://dominio.com.com/v1/store/item/list?page=1&size=3</strong>
               </div>
             </div>
-            <div id="modalResCUser">
+            <div id="modalResStoreItemList">
               <div class="modalContainer">               
-                <span id="btn-close" class="btn-close close" onclick="openModal('modalResToken')">&times;</span>
+                <span id="btn-close" class="btn-close close" onclick="openModal('modalResStoreItemList')">&times;</span>
                 <p>Response Example</p>
                 <div class="codeDiv">
-                  <pre class="prettyprint">
+                  <pre id="pre-resp" class="prettyprint">
   {
-  <span class="keyJson">"id"</span> : 897,
-  <span class="keyJson">"uuid"</span> : "4b69075f-d7df-42fb-b05e-69056424806a",
-  <span class="keyJson">"nombre"</span> : "GOD OF WAR",
-  <span class="keyJson">"price"</span> : "$ 34.00",
-  <span class="keyJson">"discount"</span> : false,
-  <span class="keyJson">"store_id"</span> : 321,
-  <span class="keyJson">"count"</span> : 12
+    <span class="keyJson">"id"</span> : 897,
+    <span class="keyJson">"uuid"</span> : "4b69075f-d7df-42fb-b05e-69056424806a",
+    <span class="keyJson">"nombre"</span> : "GOD OF WAR",
+    <span class="keyJson">"price"</span> : "$ 34.00",
+    <span class="keyJson">"discount"</span> : false,
+    <span class="keyJson">"store_id"</span> : 321,
+    <span class="keyJson">"count"</span> : 12
   },
   {
     <span class="keyJson">"id"</span> : 898,
@@ -484,6 +514,7 @@
     <span class="keyJson">"count"</span> : 32
     },
                   </pre>
+                  <button id="btn-modal" class="btn-view-more" onclick="openModal('modalResStoreItemList')">view more</button>
                 </div>
               </div>
             </div>
@@ -498,6 +529,11 @@
               <div class="endpoint-box"> https://dominio.com.com/v1/store/item/filtered/list</div>
             <h3>Description</h3>
             <p>Endpoint Utilizado para obtener los preductos disponibles en base de datos pero de manera filtrada por algun campo en especifico, si el usuario no agrega campos con los cuales filtrar, de retornaran registros sin filtros pero paginados.</p>
+            <div class="double-column">
+              <h4>Authorization-token </h4>
+              <p class="pre-wraper token">eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy
+              </p>
+            </div>
             <h3>body</h3>
             <div class="codeDiv">
               Campos con los que se puede filtrar la respuesta
@@ -520,7 +556,8 @@
                 <p>Request Example</p>
                 <strong class="post">https://dominio.com.com/v1/store/item/filtered/list</strong>
                 <div class="codeDiv">
-                  <pre class="prettyprint">
+                  <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('filt-list-item-pre')"> <i class="ri-file-copy-2-fill"></i></span></div>
+                  <pre id="filt-list-item-pre" class="prettyprint">
 {
   <span class="keyJson">"price": </span>34
 }                 
@@ -566,6 +603,11 @@
               <div class="endpoint-box"> https://dominio.com.com/v1/store/item/create</div>
             <h3>Description</h3>
             <p>Endpoint Utilizado para crear un item perteneciente a una store</p>
+            <div class="double-column">
+              <h4>Authorization-token </h4>
+              <p class="pre-wraper token">eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy
+              </p>
+            </div>
             <h3>body</h3>
             <div class="codeDiv">
               <pre class="prettyprint pre-wraper">
@@ -586,7 +628,8 @@
                 <p>Request Example</p>
                 <strong class="post">https://dominio.com.com/v1/store/item/create</strong>
                 <div class="codeDiv">
-                  <pre class="prettyprint">
+                  <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('item-create-pre')"> <i class="ri-file-copy-2-fill"></i></span></div>
+                  <pre id="item-create-pre" class="prettyprint">
 {
   <span class="keyJson">"nombre"</span> : "Need For Speed",
   <span class="keyJson">"price"</span> : 28,               
@@ -628,6 +671,11 @@
               <div class="endpoint-box"> https://dominio.com.com/v1/payment/url/generate</div>
             <h3>Description</h3>
             <p>Endpoint Utilizado para Generar la url del pago a partir de los productos contenientes en el carrito de compras</p>
+            <div class="double-column">
+              <h4>Authorization-token </h4>
+              <p class="pre-wraper token">eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy
+              </p>
+            </div>
             <h3>body</h3>
             <div class="codeDiv">
               <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('tokenbeautified')"> <i class="ri-file-copy-2-fill"></i></span></div>
@@ -645,7 +693,8 @@
                 <p>Request Example</p>
                 <strong class="post">https://dominio.com.com/v1/payment/url/generate</strong>
                 <div class="codeDiv">
-                  <pre class="prettyprint">
+                  <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('url-create-pre')"> <i class="ri-file-copy-2-fill"></i></span></div>
+                  <pre id="url-create-pre" class="prettyprint">
 {
   <span class="keyJson">"user_uuid"</span> : "cc4495a9-3e54-477f-a306-8aebae3b7ffd",
   <span class="keyJson">"total"</span> : 289.45
@@ -679,9 +728,13 @@
               <div class="endpoint-box"> https://dominio.com.com/v1/payment/url/validate</div>
             <h3>Description</h3>
             <p>Endpoint Utilizado para crear un usuario en base de datos, este regresara informacion del usuario asi como el token y refresh token de la session</p>
+            <div class="double-column">
+              <h4>Authorization-token </h4>
+              <p class="pre-wraper token">eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy
+              </p>
+            </div>
             <h3>body</h3>
             <div class="codeDiv">
-              <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('tokenbeautified')"> <i class="ri-file-copy-2-fill"></i></span></div>
               <pre class="prettyprint pre-wraper">
 {
   <span class="keyJson">"payment_id"</span>: "55f3a57d-760b-4fda-bda8-e4e7e0e8423e"
@@ -695,7 +748,8 @@
                 <p>Request Example</p>
                 <strong class="post">https://dominio.com.com/v1/payment/url/validate</strong>
                 <div class="codeDiv">
-                  <pre class="prettyprint">
+                  <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('url-validate-pre')"> <i class="ri-file-copy-2-fill"></i></span></div>
+                  <pre id="url-validate-pre" class="prettyprint">
 {
   <span class="keyJson">"payment_id"</span>: "55f3a57d-760b-4fda-bda8-e4e7e0e8423e"
 }
@@ -704,13 +758,12 @@
               </div>
             </div>
             <div id="modalResCUser">
-              <div class="modalContainer">               
-                <span id="btn-close" class="btn-close close" onclick="openModal('modalResToken')">&times;</span>
+              <div class="modalContainer">
                 <p>Response Example</p>
                 <div class="codeDiv">
                   <pre class="prettyprint">
 {
-  <span class="keyJson">"payment_id"</span> : "avargas@gmail.com",
+  <span class="keyJson">"payment_id"</span> : "55f3a57d-760b-4fda-bda8-e4e7e0e8423e",
   <span class="keyJson">"is_payed"</span> : true
   <span class="keyJson">"payment_date"</span> : "2024-01-12 15:34:12"
 }
