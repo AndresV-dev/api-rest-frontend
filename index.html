@@ -331,7 +331,7 @@
               <h1 class="get">User List</h1>
               <div class="endpoint-box"> https://dominio.com.com/v1/user/list?page=1&size=200</div>
             <h3>Description</h3>
-            <p>Endpoint Utilizado para la obtencion de todos los usuarios contenidos en la base de datos, mediante paginacion. Si el usuario que ejecuta el endpoint no pone estos indicativos de paginacion, el endpoint puede funcionar ya que tiene como default "<strong>?page=1&size=1000</strong>", por lo que siempre estara paginado</p>
+            <p>Endpoint Utilizado para la obtencion de todos los usuarios contenidos en la base de datos, mediante paginacion. Si el usuario que ejecuta el endpoint no pone estos indicativos de paginacion, el endpoint puede funcionar ya que tiene como default "<strong>?page=1&size=200</strong>", por lo que siempre estara paginado</p>
             <div class="double-column">
               <h4>Authorization-token </h4>
               <p class="pre-wraper token">eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy
@@ -466,7 +466,7 @@
               <h1 class="get">Store Item List</h1>
               <div class="endpoint-box"> https://dominio.com.com/v1/store/item/list?page=1&size=200</div>
             <h3>Description</h3>
-            <p>Endpoint Utilizado para la obtencion de todos los Items o productos contenidos en la base de datos, mediante paginacion. Si el usuario que ejecuta el endpoint no pone estos indicativos de paginacion, el endpoint puede funcionar ya que tiene como default "<strong>?page=1&size=1000</strong>", por lo que siempre estara paginado</p>
+            <p>Endpoint Utilizado para la obtencion de todos los Items o productos contenidos en la base de datos, mediante paginacion. Si el usuario que ejecuta el endpoint no pone estos indicativos de paginacion, el endpoint puede funcionar ya que tiene como default "<strong>?page=1&size=200</strong>", por lo que siempre estara paginado</p>
             <div class="double-column">
               <h4>Authorization-token </h4>
               <p class="pre-wraper token">eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdmFyZ2FzQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA4OTE5NiwiZXhwIjoxNjgzMTc1NTk2fQ.CMiu51p9yUR9BwGWEWduwj1xpzPYNQxMrDc9rPnGtLjGDmTsaXvQQvcgXnrjhfoy
@@ -599,8 +599,8 @@
       <!-- Create New Item Section -->
         <section id="create-store-item" >
           <div class="description">
-              <h1 class="post">Create User</h1>
-              <div class="endpoint-box"> https://dominio.com.com/v1/store/item/create</div>
+              <h1 class="post">Create Store Item</h1>
+              <div class="endpoint-box"> https://dominio.com.com/v1/product/item/create</div>
             <h3>Description</h3>
             <p>Endpoint Utilizado para crear un item perteneciente a una store</p>
             <div class="double-column">
@@ -626,7 +626,7 @@
             <div id="modalReqCUser">
               <div class="modalContainer">
                 <p>Request Example</p>
-                <strong class="post">https://dominio.com.com/v1/store/item/create</strong>
+                <strong class="post">https://dominio.com.com/v1/product/item/create</strong>
                 <div class="codeDiv">
                   <div class="double-column"><h4>Json</h4><span class="close" onclick="CopyToClipboard('item-create-pre')"> <i class="ri-file-copy-2-fill"></i></span></div>
                   <pre id="item-create-pre" class="prettyprint">
